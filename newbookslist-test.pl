@@ -7,6 +7,8 @@
 #
 use NewBooksList;    # qw(parseToList fileToList listToJSON);
 
+use constant EOL => "\n";
+
 #
 # Testing utility methods
 #
@@ -33,6 +35,7 @@ sub isOK {
     ($expr) or die( $msg . "\n" );
 }
 
+
 #
 # Test groupings, one group per function.
 #
@@ -46,7 +49,7 @@ sub testCorrectAsserts {
     isOK( "one", "Should be OK" );
 }
 
-sub testModule {
+sub testFunctions {
     my $in_filename = "test-data/nbl-in-1.txt";
     my $src         = "";
     my @list0       = ();
@@ -58,14 +61,18 @@ sub testModule {
         $src .= $_;
     }
     close(IN);
+
     isNotEqual( "$src", "", "Should have text of $in_filename\n" );
-    @list0 = NewBooksList::parseToList($src);
-    isNotEqual( scalar(@list0), 0,
-        "Should have a populated list from \$src\n" );
-    isNotEqual( scalar(@list1), 0,
+    @list0 = NewBooksList::parseToList($src); #@{NewBooksList::parseToList($src)};
+    isEqual( scalar(@list0), 268,
+        "Should have a populated list from \$src\n");
+    isEqual( scalar(@list1), scalar(@list0),
         "Should be able to read in $in_filename and generate a list" );
-    $json = listToJSON(@list0);
-    isOK( $json, "Should have a string in JSON format from list0\n" );
+
+    ## FIXME: Need to actually validate the individual records - e.g. multi-valued fields should be generated
+    ## not overwritten!
+#    $src = NewBooksList::listToString(@list0);
+#    print "DEBUG src: $src" . EOL;
 }
 
 #
@@ -73,6 +80,7 @@ sub testModule {
 #
 print "Testing newbookslist.pm\n";
 testCorrectAsserts();
-testModule();
+testFunctions();
 print "Success!\n";
+
 1;

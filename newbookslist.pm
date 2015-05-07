@@ -5,13 +5,33 @@
 # copyright (c) 2015 California Institution of Technology
 #
 package NewBooksList;
+use JSON;
+use Data::Dumper;
 
 use strict;
 use warnings;
 
 use Exporter qw(import);
 
-our @EXPORT_OK = qw(NewBooksList::parseToList NewBooksList::fileToList NewBooksList::listToJSON);
+our @EXPORT_OK = qw(NewBooksList::parseToList NewBooksList::fileToList NewBooksList::listToString);
+
+use constant EOL   => "\n";
+use constant DELIM => " = ";
+
+sub listToString {
+    my @data = shift;
+    my @out  = ();
+print "DEBUG last index of data: " . $#data . EOL;
+    while (@data) {
+      my %item = shift(@data);
+      foreach my $key ( keys %item ) {
+          if ((defined $item{$key}) && ($item{$key} ne "")) {
+            push( @out, ( "$key -> " . $item{$key} ) );
+          }
+      }
+    }
+    return join( "\n", @out );
+}
 
 #
 # parseToList - given an entire list as a single string, parse the lines
@@ -20,7 +40,62 @@ our @EXPORT_OK = qw(NewBooksList::parseToList NewBooksList::fileToList NewBooksL
 sub parseToList {
     my $src     = shift;
     my @records = ();
-    print "WARNING: parseToList() not implemented.\n";
+    my %rec     = ();
+    my $key;
+    my $value;
+    my $i = 0;
+
+    foreach my $line ( split( /\n\r|\n/, $src ) ) {
+        $line =~ s/\s+$//g;
+        if ( $line eq "" ) {
+            if ( ( scalar keys %rec ) > 0 ) {
+                $records[$i] = %rec;
+                $i++;
+
+                %rec   = ();
+                $key   = "";
+                $value = "";
+            }
+        }
+        else {
+            ## Split for key and value pair, or append line to last key.
+            if ( index( $line, DELIM ) != -1 ) {
+                ( $key, $value ) = split( DELIM, $line );
+                $key =~ s/^\s+|\s+$//g;
+            }
+            else {
+                $value = $line;
+            }
+
+            ## Trim the trailing spaces on the line.
+            if ( defined $value ) {
+                $value =~ s/\s+$//g;
+            } else {
+                $value = "";
+            }
+
+            ## Handle multi-valued fields as appended lines to entry.
+            if ( ( $value ne "" ) && ( $key ne "" ) ) {
+                ## Handle fields that are multivalued
+                if ( defined $rec{$key} ) {
+                    ## FIXME: Only add value is not a duplicate.
+                    if (index($rec{$key}, $value) == -1) {
+                        my $combined_value = $rec{$key} . EOL . "$value";
+                        $rec{$key} = $combined_value;
+                    } else {
+                      print "DEBUG skipping substr [" . $value . "] in [" . $rec{$key} . "]". EOL;
+                    }
+                }
+                else {
+                    ## Single valued case
+                    $rec{$key} = "$value";
+                }
+            }
+            print "DEBUG key: $key -> " . $rec{$key} . EOL;
+        }
+    }
+    print "DEBUG print records inside parseToList(): [" . listToString(@records) . "]" . EOL;
+    print "DEBUG total records count: " . scalar(@records) . EOL;
     return @records;
 }
 
@@ -31,6 +106,7 @@ sub parseToList {
 sub fileToList {
     my $in_filename = shift;
     my $src         = "";
+    my @out         = ();
 
     open( IN, "$in_filename" ) or die "Can't open $in_filename for reading";
     while (<IN>) {
@@ -38,17 +114,6 @@ sub fileToList {
     }
     close(IN);
     return parseToList($src);
-}
-
-#
-# listToJSON - stream in an input file and generate a valid JSON file
-#
-sub listToJSON {
-    my @list = shift;
-    my $json = "";
-
-    print "WARNING: listToJSON() not implemented.\n";
-    return $json;
 }
 
 1;
