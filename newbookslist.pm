@@ -79,6 +79,12 @@ sub parseToList {
                 ## Handle fields that are multivalued
                 if ( defined $rec{$key} ) {
                     ## FIXME: Only add value is not a duplicate.
+                      # DEBUG key: STANDARD # -> 9781107419247.
+                      # DEBUG skipping substr [1107419247.] in [9781107419247.]
+                      # DEBUG key: STANDARD # -> 9781107419247.
+                      # DEBUG key: STANDARD # -> 9781107419247.
+                      # 9781139208666 (ebook).
+
                     if (index($rec{$key}, $value) == -1) {
                         my $combined_value = $rec{$key} . EOL . "$value";
                         $rec{$key} = $combined_value;
