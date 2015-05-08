@@ -50,7 +50,7 @@ sub testCorrectAsserts {
 }
 
 sub testFunctions {
-    my $in_filename = "test-data/nbl-in-1.txt";
+    my $in_filename = "test-data/proof-of-concept-parser.p";
     my $src         = "";
     my @list0       = ();
     my @list1       = NewBooksList::fileToList($in_filename);

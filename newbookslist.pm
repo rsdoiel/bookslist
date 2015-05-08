@@ -13,19 +13,97 @@ use warnings;
 
 use Exporter qw(import);
 
-our @EXPORT_OK = qw(NewBooksList::parseToList NewBooksList::fileToList NewBooksList::listToString);
+our @EXPORT_OK = qw(
+    NewBooksList::start
+    NewBooksList::position
+    NewBooksList::next
+    NewBooksList::len
+    NewBooksList::clear
+    NewBooksList::parseToList
+    NewBooksList::fileToList
+    NewBooksList::listToString
+  );
 
 use constant EOL   => "\n";
 use constant DELIM => " = ";
 
+# Records array is where all the records get stored for booklist set.
+my @records = ();
+my $cursor = 0;
+
+#
+# Set the cursor position to zero.
+#
+sub start {
+  my $pos = shift;
+
+  if (defined($pos) && ($pos > 0)) {
+      $cursor = $pos;
+  } else {
+      $cursor = 0;
+  }
+  return $cursor;
+}
+
+#
+# Return the numeric value of cursor position.
+#
+sub position {
+  return $cursor;
+}
+
+#
+# Increment and return the cursor position. If
+# cursor is beyond end of records array then set to zero
+# and return -1.
+#
+sub next {
+  $cursor++;
+  if ($cursor >= len()) {
+      $cursor = 0;
+      return -1;
+  }
+  return $cursor;
+}
+
+#
+# return the  of populated records array
+#
+sub len {
+   return scalar(grep {defined $_} @records);
+}
+
+#
+# clear the records array to an empty array.
+#
+sub clear {
+   @records = ();
+   if (len() == 0) {
+     return 1;
+   }
+   return 0;
+}
+
+#
+# return the record at the current cursor position
+#
+sub record {
+    return $records[$cursor];
+}
+
+#
+# Without affecting the cursor render the entire records
+# array to a string. Should evolve this into a JSON renderer.
+#
 sub listToString {
-    my @data = shift;
     my @out  = ();
-print "DEBUG last index of data: " . $#data . EOL;
-    while (@data) {
-      my %item = shift(@data);
+    my $rec_count = len();
+
+    for (my $i = 0; $i < $rec_count; $i++) {
+      my %item = $records[$i];
       foreach my $key ( keys %item ) {
           if ((defined $item{$key}) && ($item{$key} ne "")) {
+            print "DEBUG pusing to out $key -> " . $item{$key} . EOL;
             push( @out, ( "$key -> " . $item{$key} ) );
           }
       }
@@ -39,8 +117,8 @@ print "DEBUG last index of data: " . $#data . EOL;
 #
 sub parseToList {
     my $src     = shift;
-    my @records = ();
     my %rec     = ();
+    my $recording = 0;
     my $key;
     my $value;
     my $i = 0;
@@ -48,10 +126,11 @@ sub parseToList {
     foreach my $line ( split( /\n\r|\n/, $src ) ) {
         $line =~ s/\s+$//g;
         if ( $line eq "" ) {
-            if ( ( scalar keys %rec ) > 0 ) {
-                $records[$i] = %rec;
-                $i++;
-
+            if ( $recording == 1 ) {
+              ## FIXME: how do I push a hash onto the end of records?
+                push(@records, \%rec);
+                $i++; # total record added.
+                $recording = 0;
                 %rec   = ();
                 $key   = "";
                 $value = "";
@@ -87,6 +166,7 @@ sub parseToList {
 
                     if (index($rec{$key}, $value) == -1) {
                         my $combined_value = $rec{$key} . EOL . "$value";
+                        $recording = 1;
                         $rec{$key} = $combined_value;
                     } else {
                       print "DEBUG skipping substr [" . $value . "] in [" . $rec{$key} . "]". EOL;
@@ -94,6 +174,7 @@ sub parseToList {
                 }
                 else {
                     ## Single valued case
+                    $recording = 1;
                     $rec{$key} = "$value";
                 }
             }
@@ -101,8 +182,9 @@ sub parseToList {
         }
     }
     print "DEBUG print records inside parseToList(): [" . listToString(@records) . "]" . EOL;
-    print "DEBUG total records count: " . scalar(@records) . EOL;
-    return @records;
+    print "DEBUG total records count: " . scalar(@records) . " ?= $i" . EOL;
+    # return the total number of records added in this parse pass.
+    return $i;
 }
 
 #
