@@ -18,7 +18,7 @@ sub isEqual {
     my $expr2 = "" . shift;
     my $msg   = shift;
 
-    ( $expr1 eq $expr2 ) or die( $msg . "\n" );
+    ( $expr1 eq $expr2 ) or die("ERROR ->: " . $msg . "\n" );
 }
 
 sub isNotEqual {
@@ -26,15 +26,26 @@ sub isNotEqual {
     my $expr2 = "" . shift;
     my $msg   = shift;
 
-    ( $expr1 ne $expr2 ) or die( $msg . "\n" );
+    ( $expr1 ne $expr2 ) or die("ERROR ->: " . $msg . "\n" );
 }
 
 sub isOK {
     my $expr = "" . shift;
     my $msg  = shift;
-    ($expr) or die( $msg . "\n" );
+    ($expr) or die("ERROR ->: " . $msg . "\n" );
 }
 
+sub isEmptyString {
+    my $s = "" . shift;
+    my $msg  = shift;
+    ($s eq "") or die("ERROR ->: " . $msg . "\n" );
+}
+
+sub isNotEmptyString {
+  my $s = "" . shift;
+  my $msg  = shift;
+  ($s ne "") or die("ERROR ->: " . $msg . "\n" );
+}
 
 #
 # Test groupings, one group per function.
@@ -47,11 +58,14 @@ sub testCorrectAsserts {
     isNotEqual( 1,     "two", "should not fail 1 ne 'two'" );
     isOK( 1,     "Should be OK" );
     isOK( "one", "Should be OK" );
+    isEmptyString("", "Should be OK, an empty string");
+    isNotEmptyString("Not empty", "Should be OK, not an empty string");
 }
 
 sub testFunctions {
     my $in_filename = "test-data/proof-of-concept-parser.p";
     my $src         = "";
+    my $output = "";
     my @list0       = ();
     my @list1       = NewBooksList::fileToList($in_filename);
 
@@ -63,16 +77,50 @@ sub testFunctions {
     close(IN);
 
     isNotEqual( "$src", "", "Should have text of $in_filename\n" );
-    @list0 = NewBooksList::parseToList($src); #@{NewBooksList::parseToList($src)};
-    isEqual( scalar(@list0), 268,
-        "Should have a populated list from \$src\n");
-    isEqual( scalar(@list1), scalar(@list0),
-        "Should be able to read in $in_filename and generate a list" );
+    @list0 = NewBooksList::parseToList($src);
+    $output = NewBooksList::listToString(@list0);
+    isNotEmptyString($output, "\@list0 should not produce an emprt string.");
 
+    my $list0_cnt = NewBooksList::recordCount(@list0);
+    my $list1_cnt = NewBooksList::recordCount(@list1);
+    isEqual( $list0_cnt, 268,
+        "Should have a populated list expected 268 got $list0_cnt");
+    isEqual( $list0_cnt, $list1_cnt,
+        "Should have a populated list expected 268,268 got $list0_cnt, $list1_cnt");
+
+    my %dataset = (
+      "LOCATION" => "World Wide Web",
+      "STANDARD #" => "1107419247",
+      );
+    foreach my $key (keys %dataset) {
+      my $value = $dataset{$key};
+      my $row_no = NewBooksList::find($key, $value, @list0);
+      isNotEqual($row_no, -1, "Should get back a row number ($row_no) for [$key] -> [$val]DEBUG");
+    }
+
+    %dataset = (
+      "RECORD #" => "b15129949."
+      );
+    foreach my $key (keys %dataset) {
+      my $value = $dataset{$key};
+      my @rows = NewBooksList::findAll($key, $value, @list0);
+      isEqual(scalar(@rows), 2, "Should get back two row numbers (" . join(", ", @rows) . ") for [$key] -> [$val]");
+    }
+
+
+    #print "Printing a list of records parsed" . EOL;
+    #print $output . EOL;
+
+    ## Some odd values for testing duplicates in fields.
+      # DEBUG key: STANDARD # -> 9781107419247.
+      # DEBUG skipping substr [1107419247.] in [9781107419247.]
+      # DEBUG key: STANDARD # -> 9781107419247.
+      # DEBUG key: STANDARD # -> 9781107419247.
+      # 9781139208666 (ebook).
     ## FIXME: Need to actually validate the individual records - e.g. multi-valued fields should be generated
     ## not overwritten!
-#    $src = NewBooksList::listToString(@list0);
-#    print "DEBUG src: $src" . EOL;
+    #    $src = NewBooksList::listToString(@list0);
+    #    print "DEBUG src: $src" . EOL;
 }
 
 #
