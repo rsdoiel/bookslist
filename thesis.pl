@@ -15,7 +15,7 @@ $filter_by = "CALL #";
 $filter_value = "THESIS";
 
 # Set the path/name of the input file (the review file from III):
-$inputfile = "thesis.p";
+$inputfile = "thesis.txt";
 
 # Set the path/name of the output file (the Web page we're creating); folders must already exist:
 $outputfile = "thesis.htm";
