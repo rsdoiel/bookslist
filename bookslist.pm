@@ -28,17 +28,37 @@ our @EXPORT_OK = qw(
 use constant EOL   => "\n";
 use constant DELIM => " = ";
 
-#
-# return the  of populated records array
-#
+=head1 BooksList
+
+A module for working with book lists exported from various library systems.
+
+=over
+
+=item recordCount()
+
+ A function that counts the records contained in a parsed books list.
+
+ parameters: an array of records.
+
+ return: the numeric count of populated records array
+
+=cut
+
 sub recordCount {
     my @in = @_;
     return scalar( grep { defined $_ } @in );
 }
 
-#
-# recordToString - turn an individual record into a string.
-#
+=item recordToString()
+
+ Turns an individual record into a string.
+
+ parameters: A hash representing a record.
+
+ return: a string representation of a record.
+
+=cut
+
 sub recordToString {
     my %record = %{ $_[0] };
     my @out    = ();
@@ -48,10 +68,16 @@ sub recordToString {
     return join( "\n", @out );
 }
 
-#
-# Without affecting the cursor render the entire records
-# array to a string. Should evolve this into a JSON renderer.
-#
+=item listToString()
+
+ Render a parsed list of records as a string.
+
+ parameters: An array of parsed records.
+
+ return: the list as a string.
+
+=cut
+
 sub listToString {
     my @in        = @_;
     my @out       = ();
@@ -67,10 +93,17 @@ sub listToString {
     return join( "\n", @out );
 }
 
-#
-# parseToList - given an entire list as a single string, parse the lines
-# into a list of records.
-#
+=item parseToList()
+
+ Given an entire list as a single string, parse the lines
+ into a list of records.
+
+ parameters: A string of unparsed book records like that exported from Millinium.
+
+ return: an array of parsed records.
+
+=cut
+
 sub parseToList {
     my $src       = shift;
     my @records   = ();
@@ -78,7 +111,6 @@ sub parseToList {
     my $recording = 0;
     my $key;
     my $value;
-    my $i = 0;
 
     foreach my $line ( split( /\n\r|\n/, $src ) ) {
         $line =~ s/\s+$//g;
@@ -89,7 +121,6 @@ sub parseToList {
                 %rec       = ();
                 $key       = "";
                 $value     = "";
-                $i++;    # total record added.
             }
         }
         else {
@@ -133,17 +164,26 @@ sub parseToList {
         %rec       = ();
         $key       = "";
         $value     = "";
-        $i++;    # total record added.
     }
-    
 
     # return the records array
     return @records;
 }
 
-#
-# find - given an field name find the first record with the requested value
-#
+=item find()
+
+ Given an field name find the first record with the requested value
+
+ parameters:
+
+  key (i.e. field name)
+  value to search for
+  an array of records
+
+  return: the index position of the first matching record found or -1 if not found.
+
+=cut
+
 sub find {
     my ( $key, $value, @in ) = @_;
     my $record_count = scalar( grep { defined $_ } @in );
@@ -158,9 +198,20 @@ sub find {
     return -1;
 }
 
-#
-# findAll - return a list of record indexes for field/value pairs found.
-#
+=item findAll()
+
+ Build a list of record indexes for field/value pairs found.
+
+ parameters:
+
+  key (i.e. field name)
+  value to search for
+  an array of records
+
+  return: an array of index positions of matching records, an empty array of none found.
+
+=cut
+
 sub findAll {
     my ( $key, $value, @in ) = @_;
     my $record_count = scalar( grep { defined $_ } @in );
@@ -175,10 +226,18 @@ sub findAll {
     return @out;
 }
 
-#
-# fileAsList - read a data set exported from Millenium and convert it into an
-# perl array of records.
-#
+=item fileAsList()
+
+ Read a data set exported from Millenium and convert it into an
+ perl array of records.  Uses the function parseToList after the lines are
+ read into memory.
+
+ parameters: the name of the file to be parsed.
+
+ return: an array of parsed records.
+
+=cut
+
 sub fileToList {
     my $in_filename = shift;
     my $src         = "";
@@ -194,9 +253,16 @@ sub fileToList {
     return parseToList($src);
 }
 
-#
-# toJSON - convert the records array data structure into a JSON string.
-#
+=item toJSON()
+
+ Convert the records array data structure into a JSON string.
+
+ parameters: an array of records
+
+ return: a JSON formatted string presentation of the records.
+
+=cut
+
 sub toJSON {
   my @in = @_;
   my $record_count = scalar( grep { defined $_ } @in );
@@ -208,4 +274,4 @@ sub toJSON {
   return "[" . join(",", @out) . "]";
 }
 
-1;
+=back
