@@ -6,7 +6,6 @@
 #
 package BooksList;
 use JSON;
-use Data::Dumper;
 use v5.16;
 
 use strict;
@@ -63,9 +62,9 @@ sub recordToString {
     my %record = %{ $_[0] };
     my @out    = ();
     foreach my $key ( keys %record ) {
-        push @out, "$key -> " . $record{$key};
+        push @out, "$key = " . $record{$key};
     }
-    return join( "\n", @out );
+    return join( "\n", @out ) . EOL . EOL;
 }
 
 =item listToString()
@@ -84,12 +83,14 @@ sub listToString {
     my $rec_count = scalar( grep { defined $_ } @in );
 
     for ( my $i = 0 ; $i < $rec_count ; $i++ ) {
-        foreach my $key ( keys $in[$i] ) {
-            if ( ( defined $in[$i]->{$key} ) && ( $in[$i]->{$key} ne "" ) ) {
-                push @out, ( "$key -> " . $in[$i]->{$key} );
-            }
-        }
+        #foreach my $key ( keys $in[$i] ) {
+        #    if ( ( defined $in[$i]->{$key} ) && ( $in[$i]->{$key} ne "" ) ) {
+        #        push @out, ( "$key = " . $in[$i]->{$key} );
+        #    }
+        #}
+        push @out, recordToString($in[$i]);
     }
+    print "DEBUG ->" . join("\n", @out);
     return join( "\n", @out );
 }
 
