@@ -1,10 +1,10 @@
 #!/usr/bin/env perl
-# newbookslist.pm - Provide some general utility methods for working with NewBooksList exported lists.
+# BooksList.pm - Provide some general utility methods for working with BooksList exported lists.
 #
 # @author R. S. Doiel, <rsdoiel@caltech.edu>
 # copyright (c) 2015 California Institution of Technology
 #
-package NewBooksList;
+package BooksList;
 use JSON;
 use Data::Dumper;
 
@@ -14,37 +14,37 @@ use warnings;
 use Exporter qw(import);
 
 our @EXPORT_OK = qw(
-    NewBooksList::recordCount
-    NewBooksList::parseToList
-    NewBooksList::fileToList
-    NewBooksList::recordToString
-    NewBooksList::listToString
-    NewBooksList::find
-    NewBooksList::findAll
-  );
+  BooksList::recordCount
+  BooksList::parseToList
+  BooksList::fileToList
+  BooksList::recordToString
+  BooksList::listToString
+  BooksList::find
+  BooksList::findAll
+  BooksList::toJSON
+);
 
 use constant EOL   => "\n";
 use constant DELIM => " = ";
-
 
 #
 # return the  of populated records array
 #
 sub recordCount {
-  my @in = @_;
-  return scalar(grep {defined $_} @in);
+    my @in = @_;
+    return scalar( grep { defined $_ } @in );
 }
 
 #
 # recordToString - turn an individual record into a string.
 #
 sub recordToString {
-    my %record = %{$_[0]};
-    my @out = ();
-    foreach my $key (keys %record) {
-      push @out, "$key -> " . $record{$key};
+    my %record = %{ $_[0] };
+    my @out    = ();
+    foreach my $key ( keys %record ) {
+        push @out, "$key -> " . $record{$key};
     }
-    return join("\n", @out);
+    return join( "\n", @out );
 }
 
 #
@@ -52,16 +52,16 @@ sub recordToString {
 # array to a string. Should evolve this into a JSON renderer.
 #
 sub listToString {
-    my @in = @_;
-    my @out  = ();
-    my $rec_count = scalar(grep {defined $_} @in);
+    my @in        = @_;
+    my @out       = ();
+    my $rec_count = scalar( grep { defined $_ } @in );
 
-    for (my $i = 0; $i < $rec_count; $i++) {
-      foreach my $key ( keys $in[$i] ) {
-        if ((defined $in[$i]->{$key}) && ($in[$i]->{$key} ne "")) {
-          push @out, ( "$key -> " . $in[$i]->{$key} );
+    for ( my $i = 0 ; $i < $rec_count ; $i++ ) {
+        foreach my $key ( keys $in[$i] ) {
+            if ( ( defined $in[$i]->{$key} ) && ( $in[$i]->{$key} ne "" ) ) {
+                push @out, ( "$key -> " . $in[$i]->{$key} );
+            }
         }
-      }
     }
     return join( "\n", @out );
 }
@@ -71,9 +71,9 @@ sub listToString {
 # into a list of records.
 #
 sub parseToList {
-    my $src     = shift;
-    my @records = ();
-    my %rec     = ();
+    my $src       = shift;
+    my @records   = ();
+    my %rec       = ();
     my $recording = 0;
     my $key;
     my $value;
@@ -85,10 +85,10 @@ sub parseToList {
             if ( $recording == 1 ) {
                 push @records, {%rec};
                 $recording = 0;
-                %rec   = ();
-                $key   = "";
-                $value = "";
-                $i++; # total record added.
+                %rec       = ();
+                $key       = "";
+                $value     = "";
+                $i++;    # total record added.
             }
         }
         else {
@@ -104,14 +104,15 @@ sub parseToList {
             ## Trim the trailing spaces on the line.
             if ( defined $value ) {
                 $value =~ s/\s+$//g;
-            } else {
+            }
+            else {
                 $value = "";
             }
             ## Handle multi-valued fields as appended lines to entry.
             if ( ( $value ne "" ) && ( $key ne "" ) ) {
                 ## Handle fields that are multivalued
                 if ( defined $rec{$key} ) {
-                    if (index($rec{$key}, $value) == -1) {
+                    if ( index( $rec{$key}, $value ) == -1 ) {
                         $recording = 1;
                         my $combined_value = $rec{$key} . EOL . "$value";
                         $rec{$key} = $combined_value;
@@ -125,6 +126,16 @@ sub parseToList {
             }
         }
     }
+    if ( $recording == 1 ) {
+        push @records, {%rec};
+        $recording = 0;
+        %rec       = ();
+        $key       = "";
+        $value     = "";
+        $i++;    # total record added.
+    }
+    
+
     # return the records array
     return @records;
 }
@@ -133,35 +144,38 @@ sub parseToList {
 # find - given an field name find the first record with the requested value
 #
 sub find {
-  my ($key, $value, @in) = @_;
-  my $record_count = scalar(grep {defined $_} @in);
+    my ( $key, $value, @in ) = @_;
+    my $record_count = scalar( grep { defined $_ } @in );
 
-  for (my $i = 0; $i < $record_count; $i++ ) {
-    if ((defined $in[$i]{$key}) && (index($in[$i]{$key}, $value) != -1)) {
-       return $i;
+    for ( my $i = 0 ; $i < $record_count ; $i++ ) {
+        if (   ( defined $in[$i]{$key} )
+            && ( index( $in[$i]{$key}, $value ) != -1 ) )
+        {
+            return $i;
+        }
     }
-  }
-  return -1;
+    return -1;
 }
 
 #
 # findAll - return a list of record indexes for field/value pairs found.
 #
 sub findAll {
-  my ($key, $value, @in) = @_;
-  my $record_count = scalar(grep {defined $_} @in);
-  my @out = ();
-  for (my $i = 0; $i < $record_count; $i++ ) {
-    if ((defined $in[$i]{$key}) && (index($in[$i]{$key}, $value) != -1)) {
-        push @out, $i;
+    my ( $key, $value, @in ) = @_;
+    my $record_count = scalar( grep { defined $_ } @in );
+    my @out = ();
+    for ( my $i = 0 ; $i < $record_count ; $i++ ) {
+        if (   ( defined $in[$i]{$key} )
+            && ( index( $in[$i]{$key}, $value ) != -1 ) )
+        {
+            push @out, $i;
+        }
     }
-  }
-  return @out;
+    return @out;
 }
 
-
 #
-# fileToList - read a data set exported from Millenium and convert it into an
+# fileAsList - read a data set exported from Millenium and convert it into an
 # perl array of records.
 #
 sub fileToList {
@@ -174,8 +188,23 @@ sub fileToList {
         $src .= $_;
     }
     close(IN);
+
     # return an array of records
     return parseToList($src);
+}
+
+#
+# toJSON - convert the records array data structure into a JSON string.
+#
+sub toJSON {
+  my @in = @_;
+  my $record_count = scalar( grep { defined $_ } @in );
+  my @out = ();
+
+  for (my $i = 0; $i < $record_count; $i++) {
+    push @out, to_json($in[$i]);
+  }
+  return "[" . join(",", @out) . "]";
 }
 
 1;

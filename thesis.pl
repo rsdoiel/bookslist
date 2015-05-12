@@ -1,20 +1,21 @@
 #!/usr/bin/env perl
 #############################################################################################
-##### thesis.pl - Generate webpages and RSS feed of new thesis with NewBooksLists module
+##### thesis.pl - Generate webpages and RSS feed of new thesis with BooksLists module
 ##### 2015-05-05 RSD
 #############################################################################################
-
-use NewBooksList;
-
-# Get the code for your library-specific header/footer as well as dates:
-require "thesis_container.pl";
 
 # ===== BEGIN LIBRARY CUSTOMIZATION =====
 
 # DEFINE SOME VARIABLES AND SET THEIR VALUES.
 
+# Filter by field
+$filter_by = "CALL #";
+
+# Filter by value
+$filter_value = "THESIS";
+
 # Set the path/name of the input file (the review file from III):
-$inputfile = "thesis.txt";
+$inputfile = "thesis.p";
 
 # Set the path/name of the output file (the Web page we're creating); folders must already exist:
 $outputfile = "thesis.htm";
@@ -73,10 +74,22 @@ $pagetitle = "Recent Thesis Additions in the Caltech Library";
 
 # ===== END LIBRARY CUSTOMIZATION =====
 
+use BooksList;
+use JSON;
+
+#
+# Global objects for program
+#
+my @records = ();
+
+
+# Get the code for your library-specific header/footer as well as dates:
+require "thesis_container.pl";
+
 # ===== No need to edit this script past this point...unless you know what you're doing. ======
 {
 
-    my $newbooks = NewBooksList::fileToList($inputfile);
+    my @records = BooksList::fileToList($inputfile);
 
 # FIXME: Process list into HTML page.
 # FIXME: Process list into RSS Feed.
