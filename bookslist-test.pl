@@ -63,7 +63,7 @@ sub testCorrectAsserts {
 }
 
 sub testFunctions {
-    my $in_filename = "test-data/proof-of-concept-parser.p";
+    my $in_filename = "test-data/proof-of-concept-parser.txt";
     my $src         = "";
     my $output      = "";
     my @list0       = ();
@@ -143,9 +143,9 @@ sub testThesisFeed {
   my @records = ();
   my $record_count = 0;
 
-  @records = BooksList::fileToList("test-data/thesis.p");
+  @records = BooksList::fileToList("test-data/thesis.txt");
   $record_count = BooksList::recordCount(@records);
-  isEqual($record_count, 91, "Should find 91 thesis records in test-data/thesis.p [$record_count]");
+  isEqual($record_count, 91, "Should find 91 thesis records in test-data/thesis.txt [$record_count]");
 }
 
 #

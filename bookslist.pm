@@ -7,6 +7,7 @@
 package BooksList;
 use JSON;
 use Data::Dumper;
+use v5.16;
 
 use strict;
 use warnings;
