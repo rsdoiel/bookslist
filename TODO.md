@@ -7,6 +7,6 @@
 
 # Someday
 
-+ convert call2subject.pl to subject.pl
-+ rewrite the all scripts to use the bookslist.pm and subject.pm modules.
++ convert call2subject.pl to calltosubject.pm (e.g. CallToSubject::*)
++ rewrite the all scripts to use the bookslist.pm and calltosubject.pm modules.
 
