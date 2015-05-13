@@ -69,6 +69,7 @@ sub testFunctions {
     my @list0       = ();
     my @list1       = BooksList::fileToList($in_filename);
 
+    print "\ttestFunctions\t";
     open( IN, $in_filename )
       or die("Can't open test input file $in_filename\n");
     while (<IN>) {
@@ -112,9 +113,9 @@ sub testFunctions {
     }
 
     my $json_src = BooksList::toJSON(@list0);
-    open(my $fout, ">test.json") or die("Can't write test.json");
-    print $fout $json_src;
-    close($fout);
+    #open(my $fout, ">test.json") or die("Can't write test.json");
+    #print $fout $json_src;
+    #close($fout);
 
     my $json = JSON->new->utf8;
 
@@ -137,15 +138,58 @@ sub testFunctions {
     ## not overwritten!
     #    $src = BooksList::listToString(@list0);
     #    print "DEBUG src: $src" . EOL;
+    print "OK" . EOL;
 }
 
 sub testThesisFeed {
   my @records = ();
   my $record_count = 0;
-
+  print "\ttestThesisFeed\t";
   @records = BooksList::fileToList("test-data/thesis.txt");
   $record_count = BooksList::recordCount(@records);
   isEqual($record_count, 91, "Should find 91 thesis records in test-data/thesis.txt [$record_count]");
+  print "OK" . EOL;
+}
+
+sub testAuthorExtraction {
+  my %record = ();
+
+  print "\ttestAuthorExtraction\t";
+
+  $record{'TITLE'} = "This is a work / Mark Doiel, Robert Doiel";
+
+  my $authors = BooksList::getAuthor(%record);
+  isEqual("Mark Doiel, Robert Doiel", $authors, "Authors should be Mark Doiel, Robert Doiel: [$author]");
+
+  my ($author1, $author2) = split(", ", $authors);
+  my $last_name1 = BooksList::lastName($author1);
+  my $last_name2 = BooksList::lastName($author2);
+
+  isEqual($last_name1, "Doiel", "Should get a last name for $author1 [$last_name1]");
+  isEqual($last_name2, "Doiel", "Should get a last name for $author2 [$last_name2]");
+
+  %record = ();
+  $record{"AUTHOR"} = "Esposito, Giampiero, author. ";
+  $author1 = BooksList::getAuthor(%record);
+  $last_name1 = BooksList::lastName($author1);
+
+  isEqual($author1, "Giampiero Esposito", "full name of Esposito, Giampiero, author. -> [$author1]");
+  isEqual($last_name1, "Esposito", "last name of Esposito, Giampiero, author. -> [$author1]");
+  print "OK" . EOL;
+}
+
+sub testLastNameFirst {
+  my %record = ();
+
+  print "\ttestLastNameFirst\t";
+
+  $record{"AUTHOR"} = "Esposito, Giampiero, author. ";
+  my $author = BooksList::getAuthor(%record);
+  my $last_name_first = BooksList::lastNameFirst($author);
+
+  isEqual($last_name_first, "Esposito, Giampiero", "full name: $author -> [$last_name_first]");
+
+  print "OK" . EOL;
 }
 
 #
@@ -155,6 +199,8 @@ print "Testing BooksList.pm\n";
 testCorrectAsserts();
 testFunctions();
 testThesisFeed();
+testAuthorExtraction();
+testLastNameFirst();
 print "Success!\n";
 
-1;
+__END__;

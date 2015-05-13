@@ -77,6 +77,8 @@ $pagetitle = "Recent Thesis Additions in the Caltech Library";
 use BooksList;
 use JSON;
 
+use constant EOL => "\n";
+
 #
 # Global objects for program
 #
@@ -90,8 +92,19 @@ require "thesis_container.pl";
 {
 
     my @records = BooksList::fileToList($inputfile);
-
+    my $record_count = BooksList::recordCount(@records);
 # FIXME: Process list into HTML page.
+
+# Build A-Z by author link to records at top
+
+# Each entry format is Author, Title, Note, Location, Bib number (i.e. RECORD when begins with b is)
+
+    for (my $i = 0; $i < $record_count; $i++ ) {
+
+      print "DEBUG only title: " . $records[$i]{"TITLE"} . EOL;
+      print "DEBUG item: " . BooksList::recordToString($records[$i]) . EOL;
+    }
+    print "DEBUG record_count: $record_count" . EOL;
 # FIXME: Process list into RSS Feed.
 # FIXME: Process list into RSSJS feed.
 
