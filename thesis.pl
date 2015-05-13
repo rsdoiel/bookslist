@@ -82,7 +82,6 @@ use constant EOL => "\n";
 #
 # Global objects for program
 #
-my @records = ();
 
 
 # Get the code for your library-specific header/footer as well as dates:
@@ -90,7 +89,6 @@ require "thesis_container.pl";
 
 # ===== No need to edit this script past this point...unless you know what you're doing. ======
 {
-
     my @records = BooksList::fileToList($inputfile);
     my $record_count = BooksList::recordCount(@records);
 # FIXME: Process list into HTML page.
