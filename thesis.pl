@@ -60,7 +60,8 @@ $displaypub = 1;       # 0 for no; 1 for yes.
 $displayloc = 1;       # 0 for no; 1 for yes.
 
 # Want the ISBN to display?
-$displayisbn = 0; # Should be zero, doesn't apply to thesis but is used in other script setups.
+$displayisbn = 0
+  ; # Should be zero, doesn't apply to thesis but is used in other script setups.
 
 # Want internal nav links?
 $displaynavlinks = 1;    # 0 for no; 1 for yes.
@@ -100,7 +101,7 @@ $dszone = "PDT";
 # You can use any of the date variables above, as well as $libname from above and $pagetitle from the main script.
 
 sub page_header {
-    my ($pagetitle, $libname, $dateintl) = @_;
+    my ( $pagetitle, $libname, $dateintl ) = @_;
     my $out = <<EOM;
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
@@ -130,7 +131,7 @@ sub page_header {
 
 EOM
 
-  return $out;
+    return $out;
 }
 
 # Library-specific footer.  Code you use between the EOMs will finish the Web page.
@@ -153,42 +154,58 @@ EOM
 # Author last name navigation
 
 sub page_author_nav {
-  my @out = ();
-  push @out, '<div id="newacq-navlinks">' . EOL;
-  push @out, '<ul style="margin:0;padding:0;">' . EOL;
-  push @out, '<li style="display:inline;white-space:nowrap;"><a name="top"> &#183;</a></li>' . EOL;
+    my @out = ();
+    push @out, '<div id="newacq-navlinks">' . EOL;
+    push @out, '<ul style="margin:0;padding:0;">' . EOL;
+    push @out,
+'<li style="display:inline;white-space:nowrap;"><a name="top"> &#183;</a></li>'
+      . EOL;
 
-  foreach my $alpha (A..Z) {
-    if (List::Util::first {$_ eq $alpha} @_) {
-      push @out, '<li style="display:inline;white-space:nowrap;"><a href="#' . $alpha . '">' . $alpha . '</a> &#183;</li>';
-    } else {
-      push @out, '<li style="display:inline;white-space:nowrap;">'. $alpha . ' &#183;</li>';
+    foreach my $alpha ( A .. Z ) {
+        if ( List::Util::first { $_ eq $alpha } @_ ) {
+            push @out,
+                '<li style="display:inline;white-space:nowrap;"><a href="#'
+              . $alpha . '">'
+              . $alpha
+              . '</a> &#183;</li>';
+        }
+        else {
+            push @out,
+                '<li style="display:inline;white-space:nowrap;">'
+              . $alpha
+              . ' &#183;</li>';
+        }
     }
-  }
-  push @out, '</ul></div><!-- END id="newacq-navlinks" -->' . EOL;
-  return join (" ", @out);
+    push @out, '</ul></div><!-- END id="newacq-navlinks" -->' . EOL;
+    return join( " ", @out );
 }
+
 # Library-specific record markup.
 
 sub page_item {
-  my %record = @_;
-  my $author = BooksList::getAuthorsOnly(%record) || "";
-  my $title  = BooksList::getTitleOnly(%record) || "";
-  my $note   = $record{"NOTE"} || "";
-  my $marc   = $record{"MARC"} || "";
-  my $location = $record{"LOCATION"} || "";
-  my $bibno = $record{"RECORD #"} || "";
-  my $link = "";
-  my $out = "";
+    my %record   = @_;
+    my $author   = BooksList::getAuthorsOnly(%record) || "";
+    my $title    = BooksList::getTitleOnly(%record) || "";
+    my $note     = $record{"NOTE"} || "";
+    my $marc     = $record{"MARC"} || "";
+    my $location = $record{"LOCATION"} || "";
+    my $bibno    = $record{"RECORD #"} || "";
+    my $link     = "";
+    my $out      = "";
 
-  if (defined $record{"MARC"}) {
-      $link = '<a href="' . $marc . '">Library Catalog Record</a>';
-  } else {
-      $link = '<a href="' . $serverbase . '/record=' . $bibno .
-        '" target="_blank" class="newacq-catlink">Library Catalog Record</a></p>';
-  }
+    if ( defined $record{"MARC"} ) {
+        $link = '<a href="' . $marc . '">Library Catalog Record</a>';
+    }
+    else {
+        $link =
+            '<a href="'
+          . $serverbase
+          . '/record='
+          . $bibno
+          . '" target="_blank" class="newacq-catlink">Library Catalog Record</a></p>';
+    }
 
-  $out = <<EOM;
+    $out = <<EOM;
           <tr class="newacq-item">
             <td class="newacq-itemdesc">
               <p class="newacq-bib">
@@ -202,7 +219,7 @@ sub page_item {
           </tr>
 EOM
 
-  return $out;
+    return $out;
 }
 
 # =============== END PAGE FORMATTING ================================
@@ -210,7 +227,7 @@ EOM
 # =============== BEGIN FEED FORMATTING ==============================
 
 sub channel_header {
-    my ($title, $link, $description, $year, $lastBuildDate) = @_;
+    my ( $title, $link, $description, $year, $lastBuildDate ) = @_;
     my $out = <<EOM;
 <?xml version="1.0" encoding="iso-8859-1" ?>
 <rss version="2.0">
@@ -224,29 +241,29 @@ sub channel_header {
 
 EOM
 
-  return $out;
+    return $out;
 }
 
 sub channel_item {
-  my ($title, $link) = @_;
-  my $out = <<EOM;
+    my ( $title, $link ) = @_;
+    my $out = <<EOM;
     <item>
       <title>$title</title>
       <link>$link</link>
     </item>
 EOM
 
-  return $out;
+    return $out;
 }
 
-
 sub channel_footer {
-  my $out = <<EOM;
+    my $out = <<EOM;
   </channel>
 </rss>
 EOM
-  return $out;
+    return $out;
 }
+
 # =============== END FEED FORMATTING ================================
 
 # ===== No need to edit this script past this point. ======
@@ -318,64 +335,59 @@ $datelastbuild =
 ## End of legacy Container code.
 
 {
-    my @records = BooksList::fileToList($inputfile);
+    my @records      = BooksList::fileToList($inputfile);
     my $record_count = BooksList::recordCount(@records);
-    my @page = ();
-    my %feeds = ();
-    my $feed_key = " ";
-    my $alpha = "";
-    my @author_nav = ();
-    my $section = "";
+    my @page         = ();
+    my $alpha        = "";
+    my @author_nav   = ();
+    my $section      = "";
 
-# FIXME: Process list into HTML page.
+    # Process list into HTML page.
 
-# Build A-Z by author link to records at top
+    # Build A-Z by author link to records at top
 
 # Each entry format is Author, Title, Note, Location, Bib number (i.e. RECORD when begins with b is)
 
-    for (my $i = 0; $i < $record_count; $i++ ) {
-      my %record = %{$records[$i]};
+    for ( my $i = 0 ; $i < $record_count ; $i++ ) {
+        my %record = %{ $records[$i] };
 
-      $author = BooksList::lastName(BooksList::getAuthorsOnly(%record));
-      if (substr($author, 0, 1) ne $alpha) {
-        $section = "";
-        if ($alpha ne "") {
-          $section .= <<EOM;
+        $author = BooksList::lastName( BooksList::getAuthorsOnly(%record) );
+        if ( substr( $author, 0, 1 ) ne $alpha ) {
+            $section = "";
+            if ( $alpha ne "" ) {
+                $section .= <<EOM;
           </tr>
           </table>
           <p><a href="#top">[Return to Top]</a></p>
 
 EOM
-          ## FIXME: write out Alpha feed.
-          $feed_key = $alpha;
-        }
-        ## FIXME: output section heading linked to A-Z zip line.
-        $alpha = substr($author, 0, 1);
-        push @author_nav, $alpha;
-        $section .= <<EOM;
+            }
+            $alpha = substr( $author, 0, 1 );
+            push @author_nav, $alpha;
+            $section .= <<EOM;
           <h2 class="newacq-subjheading"><a name="$alpha">$alpha</a>
           <a href="$feedserver/$alpha.xml"><img src="rss.png" alt="Subscribe to the RSS feed for recent author additions with last name starting with $alpha" title="Subscribe to the RSS feed for recent additions in Astronomy" class="newacq-rssimage" /></a>
           </h2>
           <table class="newacq-itemtable">
 EOM
-        push @page, $section;
-      }
-      push @page, page_item(%record);
+            push @page, $section;
+        }
+        push @page, page_item(%record);
     }
-    if ($alpha ne "") {
-      $section = <<EOM;
+    if ( $alpha ne "" ) {
+        $section = <<EOM;
       </table>
       <p><a href="#top">[Return to Top]</a></p>
 
 EOM
-      push @page, $section;
+        push @page, $section;
     }
 
     print "Writing $outputfile... ";
-    open (OUT, ">$outputfile") or die("Can't write to $outputfile");
-    print OUT page_header($pagetitle, $libname, $dateintl);
+    open( OUT, ">$outputfile" ) or die("Can't write to $outputfile");
+    print OUT page_header( $pagetitle, $libname, $dateintl );
     print OUT page_author_nav(@author_nav);
-    print OUT join("\n", @page);
+    print OUT join( "\n", @page );
     print OUT page_footer($dateus);
     close(OUT);
     print " done." . EOL;
@@ -383,35 +395,37 @@ EOM
     print "Writing feeds... ";
     $alpha = "";
     my $link = "";
-    for (my $i = 0; $i < $record_count; $i++ ) {
-      my %record = %{$records[$i]};
-      $author = BooksList::lastName(BooksList::getAuthorsOnly(%record));
-      if (substr($author, 0, 1) ne $alpha) {
-        if ($alpha ne "") {
-          print ", ";
-          print OUT channel_footer();
-          close (OUT);
+    for ( my $i = 0 ; $i < $record_count ; $i++ ) {
+        my %record = %{ $records[$i] };
+        $author = BooksList::lastName( BooksList::getAuthorsOnly(%record) );
+        if ( substr( $author, 0, 1 ) ne $alpha ) {
+            if ( $alpha ne "" ) {
+                print ", ";
+                print OUT channel_footer();
+                close(OUT);
+            }
+            $alpha = substr( $author, 0, 1 );
+            print $alpha;
+            open( OUT, ">$localfeedsdir\\$alpha.xml" )
+              or die("Can't write $localfeedsdir\\$alpha.xml");
+            print OUT channel_header(
+                "Theses with authors last name starting with $alpha",
+                $feedserver,
+                "CalTech Theses add to the library collection.",
+                $year,
+                $datelastbuild
+            );
         }
-        $alpha = substr($author, 0, 1);
-        print $alpha;
-        open (OUT, ">$localfeedsdir\\$alpha.xml") or die ("Can't write $localfeedsdir\\$alpha.xml");
-        print OUT channel_header(
-          "Theses with authors last name starting with $alpha",
-          $feedserver,
-          "CalTech Theses add to the library collection.",
-          $year,
-          $datelastbuild
-        );
-      }
-      if (defined $record{"MARC"}) {
-          $link = $marc;
-      } else {
-          $link = $serverbase . '/record=' . $record{"RECORD #"};
-      }
-      print OUT channel_item($record{"TITLE"}, $link);
+        if ( defined $record{"MARC"} ) {
+            $link = $record{"MARC"};
+        }
+        else {
+            $link = $serverbase . '/record=' . $record{"RECORD #"};
+        }
+        print OUT channel_item( $record{"TITLE"}, $link );
     }
     print OUT channel_footer();
-    close (OUT);
+    close(OUT);
     print " done." . EOL;
 
     # Everything must have worked, return with no errors.

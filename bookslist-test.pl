@@ -6,7 +6,6 @@
 # All rights reserved
 #
 use BooksList;
-use JSON;
 use constant EOL => "\n";
 
 #
@@ -98,8 +97,7 @@ sub testFunctions {
         my $value = $dataset{$key};
         my $row_no = BooksList::find( $key, $value, @list0 );
         isNotEqual( $row_no, -1,
-            "Should get back a row number ($row_no) for [$key] -> [$val]"
-        );
+            "Should get back a row number ($row_no) for [$key] -> [$val]" );
     }
 
     %dataset = ( "RECORD #" => "b15129949." );
@@ -112,106 +110,92 @@ sub testFunctions {
               . ") for [$key] -> [$val]" );
     }
 
-    my $text = BooksList::recordToString(%{$list0[2]});
+    my $text = BooksList::recordToString( %{ $list0[2] } );
 
-    isNotEqual($text, "", "Should have a string for " . $list[2]{"RECORD #"});
-
-    my $json_src = BooksList::toJSON(@list0);
-    #open(my $fout, ">test.json") or die("Can't write test.json");
-    #print $fout $json_src;
-    #close($fout);
-
-    my $json = JSON->new->utf8;
-
-    my @list3 = @{$json->decode($json_src)};
-
-    isNotEqual($json_src, "[]", "Should have a JSON version of \@list0");
-
-    #print "DEBUG json: $json_src" . EOL;
-
-    #print "Printing a list of records parsed" . EOL;
-    #print $output . EOL;
-
-    ## Some odd values for testing duplicates in fields.
-    # DEBUG key: STANDARD # -> 9781107419247.
-    # DEBUG skipping substr [1107419247.] in [9781107419247.]
-    # DEBUG key: STANDARD # -> 9781107419247.
-    # DEBUG key: STANDARD # -> 9781107419247.
-    # 9781139208666 (ebook).
-    ## FIXME: Need to actually validate the individual records - e.g. multi-valued fields should be generated
-    ## not overwritten!
-    #    $src = BooksList::listToString(@list0);
-    #    print "DEBUG src: $src" . EOL;
+    isNotEqual( $text, "", "Should have a string for " . $list[2]{"RECORD #"} );
     print "OK" . EOL;
 }
 
 sub testThesisFeed {
-  my @records = ();
-  my $record_count = 0;
-  print "\ttestThesisFeed\t";
-  @records = BooksList::fileToList("test-data/thesis.txt");
-  $record_count = BooksList::recordCount(@records);
-  isEqual($record_count, 91, "Should find 91 thesis records in test-data/thesis.txt [$record_count]");
-  @records = BooksList::fileToList("test-data/2015thesis.txt");
-  $record_count = BooksList::recordCount(@records);
-  isEqual($record_count, 88, "Should find 88 thesis records in test-data/thesis.txt [$record_count]");
+    my @records      = ();
+    my $record_count = 0;
+    print "\ttestThesisFeed\t";
+    @records      = BooksList::fileToList("test-data/thesis.txt");
+    $record_count = BooksList::recordCount(@records);
+    isEqual( $record_count, 91,
+        "Should find 91 thesis records in test-data/thesis.txt [$record_count]"
+    );
+    @records      = BooksList::fileToList("test-data/2015thesis.txt");
+    $record_count = BooksList::recordCount(@records);
+    isEqual( $record_count, 88,
+        "Should find 88 thesis records in test-data/thesis.txt [$record_count]"
+    );
 
-  #print BooksList::recordToString(%{$records[2]}) . EOL;
-  print "OK" . EOL;
+    print "OK" . EOL;
 }
 
-
 sub testAuthorsOnly {
-  my %record = ();
+    my %record = ();
 
-  print "\ttestAuthorsOnly\t";
+    print "\ttestAuthorsOnly\t";
 
-  $record{"AUTHOR"} = "Esposito, Giampiero, author. ";
-  my $author = BooksList::getAuthorsOnly(%record);
+    $record{"AUTHOR"} = "Esposito, Giampiero, author. ";
+    my $author = BooksList::getAuthorsOnly(%record);
 
-  isEqual($author, "Esposito, Giampiero", "full name: [$author]");
+    isEqual( $author, "Esposito, Giampiero", "full name: [$author]" );
 
-  $record{"AUTHOR"} = "Peter Chukwudi Ifeanychukwu Agbo ; Harry B. Gray, advisor ; James R. Heath, co-advisor. ";
-  $author = BooksList::getAuthorsOnly(%record);
-  isEqual($author, "Peter Chukwudi Ifeanychukwu Agbo", "full name: [$author]");
+    $record{"AUTHOR"} =
+"Peter Chukwudi Ifeanychukwu Agbo ; Harry B. Gray, advisor ; James R. Heath, co-advisor. ";
+    $author = BooksList::getAuthorsOnly(%record);
+    isEqual(
+        $author,
+        "Peter Chukwudi Ifeanychukwu Agbo",
+        "full name: [$author]"
+    );
 
-  print "OK" . EOL;
+    print "OK" . EOL;
 }
 
 sub testTitleOnly {
-  my %record = ();
+    my %record = ();
 
-  print "\ttestTitleOnly\t";
+    print "\ttestTitleOnly\t";
 
-  $record{"TITLE"} = "This is a work / Mark Doiel, Robert Doiel";
-  my $title = BooksList::getTitleOnly(%record);
-  isEqual($title, "This is a work", "Should get title only for [$title]");
+    $record{"TITLE"} = "This is a work / Mark Doiel, Robert Doiel";
+    my $title = BooksList::getTitleOnly(%record);
+    isEqual( $title, "This is a work", "Should get title only for [$title]" );
 
-  $record{"TITLE"} = "Analyses of planetary atmospheres across the spectrum : from titan to exoplanets / Joshua Andrew Kammer ; Yuk L. Yung, co-advisor ; Heather A. Knutson, co-advisor.";
-  $title = BooksList::getTitleOnly(%record);
-  isEqual($title, "Analyses of planetary atmospheres across the spectrum : from titan to exoplanets", "Should get title only for [$title]");
+    $record{"TITLE"} =
+"Analyses of planetary atmospheres across the spectrum : from titan to exoplanets / Joshua Andrew Kammer ; Yuk L. Yung, co-advisor ; Heather A. Knutson, co-advisor.";
+    $title = BooksList::getTitleOnly(%record);
+    isEqual(
+        $title,
+"Analyses of planetary atmospheres across the spectrum : from titan to exoplanets",
+        "Should get title only for [$title]"
+    );
 
-  print "OK" . EOL;
+    print "OK" . EOL;
 }
 
 sub testLastName {
-  my $raw = "Doiel, Robert, Scott";
-  my $last_name = BooksList::lastName($raw);
+    my $raw       = "Doiel, Robert, Scott";
+    my $last_name = BooksList::lastName($raw);
 
-  print "\ttestLastName\t";
+    print "\ttestLastName\t";
 
-  isEqual($last_name, "Doiel", "$raw -> $last_name");
-  $raw = "Robert Scott Doiel";
-  $last_name = BooksList::lastName($raw);
-  isEqual($last_name, "Doiel", "$raw -> $last_name");
+    isEqual( $last_name, "Doiel", "$raw -> $last_name" );
+    $raw       = "Robert Scott Doiel";
+    $last_name = BooksList::lastName($raw);
+    isEqual( $last_name, "Doiel", "$raw -> $last_name" );
 
-  my %record = ();
-  $record{"AUTHOR"} = "Peter Chukwudi Ifeanychukwu Agbo ; Harry B. Gray, advisor ; James R. Heath, co-advisor. ";
-  $raw = BooksList::getAuthorsOnly(%record);
-  $last_name = BooksList::lastName($raw);
-  isEqual($last_name, "Agbo", "$raw -> $last_name");
+    my %record = ();
+    $record{"AUTHOR"} =
+"Peter Chukwudi Ifeanychukwu Agbo ; Harry B. Gray, advisor ; James R. Heath, co-advisor. ";
+    $raw       = BooksList::getAuthorsOnly(%record);
+    $last_name = BooksList::lastName($raw);
+    isEqual( $last_name, "Agbo", "$raw -> $last_name" );
 
-  print "OK" . EOL;
+    print "OK" . EOL;
 }
 
 #
@@ -226,4 +210,3 @@ testTitleOnly();
 testLastName();
 print "Success!\n";
 
-__END__;

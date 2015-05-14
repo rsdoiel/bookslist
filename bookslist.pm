@@ -5,7 +5,6 @@
 # copyright (c) 2015 California Institution of Technology
 #
 package BooksList;
-use JSON;
 use v5.16;
 
 use strict;
@@ -21,7 +20,6 @@ our @EXPORT_OK = qw(
   BooksList::listToString
   BooksList::find
   BooksList::findAll
-  BooksList::toJSON
   BooksList::getAuthorsOnly
   BooksList::getTitleOnly
   BooksList::lastName
@@ -62,7 +60,7 @@ sub recordCount {
 =cut
 
 sub recordToString {
-    my %record = @_; # %{ $_[0] };
+    my %record = @_;    # %{ $_[0] };
     my @out    = ();
     foreach my $key ( keys %record ) {
         push @out, "$key = " . $record{$key};
@@ -86,12 +84,13 @@ sub listToString {
     my $rec_count = scalar( grep { defined $_ } @in );
 
     for ( my $i = 0 ; $i < $rec_count ; $i++ ) {
+
         #foreach my $key ( keys $in[$i] ) {
         #    if ( ( defined $in[$i]->{$key} ) && ( $in[$i]->{$key} ne "" ) ) {
         #        push @out, ( "$key = " . $in[$i]->{$key} );
         #    }
         #}
-        push @out, recordToString(%{$in[$i]});
+        push @out, recordToString( %{ $in[$i] } );
     }
     return join( "\n", @out );
 }
@@ -252,27 +251,6 @@ sub fileToList {
     return parseToList($src);
 }
 
-=item toJSON()
-
- Convert the records array data structure into a JSON string.
-
- parameters: an array of records
-
- return: a JSON formatted string presentation of the records.
-
-=cut
-
-sub toJSON {
-  my @in = @_;
-  my $record_count = scalar( grep { defined $_ } @in );
-  my @out = ();
-
-  for (my $i = 0; $i < $record_count; $i++) {
-    push @out, to_json($in[$i]);
-  }
-  return "[" . join(",", @out) . "]";
-}
-
 =item getAuthorsOnly()
 
  Remove adivors and co-advisors from the AUTHOR field.
@@ -284,27 +262,28 @@ sub toJSON {
 =cut
 
 sub getAuthorsOnly {
-  my %record = @_; # %{ $_[0] };
-  my $pos = 0;
-  my $author = "";
-  if (defined $record{"AUTHOR"}) {
-    $author = $record{"AUTHOR"};
-  }
+    my %record = @_;    # %{ $_[0] };
+    my $pos    = 0;
+    my $author = "";
+    if ( defined $record{"AUTHOR"} ) {
+        $author = $record{"AUTHOR"};
+    }
 
-  if (index($author, "; ") != -1) {
-      my @authors = split("; ", $author);
-      my @out = ();
-      foreach my $entry (@authors) {
-          if (index($entry, ", advisor") == -1 &&
-                index($entry, ", co-advisor") == -1) {
-            push @out, $entry;
-          }
-      }
-      $author = join(";", @out);
-  }
-  $author =~ s/, author.|, author//g;
-  $author =~ s/^\s+|\s+$//g;
-  return $author;
+    if ( index( $author, "; " ) != -1 ) {
+        my @authors = split( "; ", $author );
+        my @out = ();
+        foreach my $entry (@authors) {
+            if (   index( $entry, ", advisor" ) == -1
+                && index( $entry, ", co-advisor" ) == -1 )
+            {
+                push @out, $entry;
+            }
+        }
+        $author = join( ";", @out );
+    }
+    $author =~ s/, author.|, author//g;
+    $author =~ s/^\s+|\s+$//g;
+    return $author;
 }
 
 =item getTitleOnly()
@@ -318,21 +297,20 @@ sub getAuthorsOnly {
 =cut
 
 sub getTitleOnly {
-  my %record = @_;
-  my $out = "";
-  my $pos = 0;
+    my %record = @_;
+    my $out    = "";
+    my $pos    = 0;
 
-  if (defined $record{"TITLE"}) {
-     $pos = index($record{"TITLE"}, " / ");
-     if ($pos != -1) {
-        $out = substr($record{"TITLE"}, 0, $pos);
-     }
-  }
+    if ( defined $record{"TITLE"} ) {
+        $pos = index( $record{"TITLE"}, " / " );
+        if ( $pos != -1 ) {
+            $out = substr( $record{"TITLE"}, 0, $pos );
+        }
+    }
 
-  $out =~ s/^\s+|\s+$//g;
-  return $out;
+    $out =~ s/^\s+|\s+$//g;
+    return $out;
 }
-
 
 =item lastName()
 
@@ -346,18 +324,19 @@ sub getTitleOnly {
 =cut
 
 sub lastName {
-  my $raw = shift;
-  my @parts = ();
-  my $last_name = "";
+    my $raw       = shift;
+    my @parts     = ();
+    my $last_name = "";
 
-  if (index($raw, ", ") != -1) {
-      @parts = split(", ", $raw);
-      $last_name = shift @parts;
-  } else {
-    @parts = split(" ", $raw);
-    $last_name = pop @parts;
-  }
-  return $last_name;
+    if ( index( $raw, ", " ) != -1 ) {
+        @parts = split( ", ", $raw );
+        $last_name = shift @parts;
+    }
+    else {
+        @parts = split( " ", $raw );
+        $last_name = pop @parts;
+    }
+    return $last_name;
 }
 
 =back
