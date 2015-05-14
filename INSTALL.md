@@ -1,12 +1,10 @@
 
-These scripts were tested with Perl 5.16 on Mac OS X 10.10.  You will need to have the Perl JSON module installed or available
-to your Perl installation.
+These scripts were tested with Perl 5.16 on Mac OS X 10.10.  Should run on Windows too but YMMV.  
 
-```
-    cpan JSON
-```
+To install copy _thesis.pl_ and _bookslist.pm_ to your folder where you have _thesis.txt_.  Clicking on this 
+file should cause the *perl* interpreter to run and generate the related HTML and RSS files.
 
-Your deployment can be tested with the following command
+On a traditional Unix host you can test the code with 
 
 ```
     perl bookslist-test.pl
