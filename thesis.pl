@@ -1,4 +1,4 @@
-#!/usr/bin/env perl
+#!/usr/bin/perl
 # thesis.pl - Generate webpages and RSS feed of new thesis with new BooksLists module
 #
 # @author R. S. Doiel, <rsdoiel@caltech.edu>

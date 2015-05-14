@@ -1,4 +1,4 @@
-#!/usr/bin/env perl
+#!/usr/bin/perl
 #
 # Test bookslist.pm methods.
 # @author: R. S. Doiel, <rsdoiel@caltech.edu>
