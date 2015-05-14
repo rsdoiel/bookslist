@@ -112,6 +112,10 @@ sub testFunctions {
               . ") for [$key] -> [$val]" );
     }
 
+    my $text = BooksList::recordToString(%{$list0[2]});
+
+    isNotEqual($text, "", "Should have a string for " . $list[2]{"RECORD #"});
+
     my $json_src = BooksList::toJSON(@list0);
     #open(my $fout, ">test.json") or die("Can't write test.json");
     #print $fout $json_src;
@@ -148,46 +152,64 @@ sub testThesisFeed {
   @records = BooksList::fileToList("test-data/thesis.txt");
   $record_count = BooksList::recordCount(@records);
   isEqual($record_count, 91, "Should find 91 thesis records in test-data/thesis.txt [$record_count]");
+  @records = BooksList::fileToList("test-data/2015thesis.txt");
+  $record_count = BooksList::recordCount(@records);
+  isEqual($record_count, 88, "Should find 88 thesis records in test-data/thesis.txt [$record_count]");
+
+  #print BooksList::recordToString(%{$records[2]}) . EOL;
   print "OK" . EOL;
 }
 
-sub testAuthorExtraction {
+
+sub testAuthorsOnly {
   my %record = ();
 
-  print "\ttestAuthorExtraction\t";
+  print "\ttestAuthorsOnly\t";
 
-  $record{'TITLE'} = "This is a work / Mark Doiel, Robert Doiel";
-
-  my $authors = BooksList::getAuthor(%record);
-  isEqual("Mark Doiel, Robert Doiel", $authors, "Authors should be Mark Doiel, Robert Doiel: [$author]");
-
-  my ($author1, $author2) = split(", ", $authors);
-  my $last_name1 = BooksList::lastName($author1);
-  my $last_name2 = BooksList::lastName($author2);
-
-  isEqual($last_name1, "Doiel", "Should get a last name for $author1 [$last_name1]");
-  isEqual($last_name2, "Doiel", "Should get a last name for $author2 [$last_name2]");
-
-  %record = ();
   $record{"AUTHOR"} = "Esposito, Giampiero, author. ";
-  $author1 = BooksList::getAuthor(%record);
-  $last_name1 = BooksList::lastName($author1);
+  my $author = BooksList::getAuthorsOnly(%record);
 
-  isEqual($author1, "Giampiero Esposito", "full name of Esposito, Giampiero, author. -> [$author1]");
-  isEqual($last_name1, "Esposito", "last name of Esposito, Giampiero, author. -> [$author1]");
+  isEqual($author, "Esposito, Giampiero", "full name: [$author]");
+
+  $record{"AUTHOR"} = "Peter Chukwudi Ifeanychukwu Agbo ; Harry B. Gray, advisor ; James R. Heath, co-advisor. ";
+  $author = BooksList::getAuthorsOnly(%record);
+  isEqual($author, "Peter Chukwudi Ifeanychukwu Agbo", "full name: [$author]");
+
   print "OK" . EOL;
 }
 
-sub testLastNameFirst {
+sub testTitleOnly {
   my %record = ();
 
-  print "\ttestLastNameFirst\t";
+  print "\ttestTitleOnly\t";
 
-  $record{"AUTHOR"} = "Esposito, Giampiero, author. ";
-  my $author = BooksList::getAuthor(%record);
-  my $last_name_first = BooksList::lastNameFirst($author);
+  $record{"TITLE"} = "This is a work / Mark Doiel, Robert Doiel";
+  my $title = BooksList::getTitleOnly(%record);
+  isEqual($title, "This is a work", "Should get title only for [$title]");
 
-  isEqual($last_name_first, "Esposito, Giampiero", "full name: $author -> [$last_name_first]");
+  $record{"TITLE"} = "Analyses of planetary atmospheres across the spectrum : from titan to exoplanets / Joshua Andrew Kammer ; Yuk L. Yung, co-advisor ; Heather A. Knutson, co-advisor.";
+  $title = BooksList::getTitleOnly(%record);
+  isEqual($title, "Analyses of planetary atmospheres across the spectrum : from titan to exoplanets", "Should get title only for [$title]");
+
+  print "OK" . EOL;
+}
+
+sub testLastName {
+  my $raw = "Doiel, Robert, Scott";
+  my $last_name = BooksList::lastName($raw);
+
+  print "\ttestLastName\t";
+
+  isEqual($last_name, "Doiel", "$raw -> $last_name");
+  $raw = "Robert Scott Doiel";
+  $last_name = BooksList::lastName($raw);
+  isEqual($last_name, "Doiel", "$raw -> $last_name");
+
+  my %record = ();
+  $record{"AUTHOR"} = "Peter Chukwudi Ifeanychukwu Agbo ; Harry B. Gray, advisor ; James R. Heath, co-advisor. ";
+  $raw = BooksList::getAuthorsOnly(%record);
+  $last_name = BooksList::lastName($raw);
+  isEqual($last_name, "Agbo", "$raw -> $last_name");
 
   print "OK" . EOL;
 }
@@ -199,8 +221,9 @@ print "Testing BooksList.pm\n";
 testCorrectAsserts();
 testFunctions();
 testThesisFeed();
-testAuthorExtraction();
-testLastNameFirst();
+testAuthorsOnly();
+testTitleOnly();
+testLastName();
 print "Success!\n";
 
 __END__;
