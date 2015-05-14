@@ -3,6 +3,7 @@
 ##### thesis.pl - Generate webpages and RSS feed of new thesis with new BooksLists module
 ##### 2015-05-05 RSD
 #############################################################################################
+use List::Util;
 use BooksList;
 use JSON;
 
@@ -98,7 +99,7 @@ $dszone = "PDT";
 # Library -specific header. Code you use between the EOMs will start the Web page.
 # You can use any of the date variables above, as well as $libname from above and $pagetitle from the main script.
 
-sub insert_header {
+sub page_header {
     my ($pagetitle, $libname, $dateintl) = @_;
     my $out = <<EOM;
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
@@ -121,23 +122,21 @@ sub insert_header {
 	<p class="newacq-date">This page is updated periodically. This update: <span>$dateintl</span></p>
         <p><a href="newmaterials.htm">Books</a>
 	    &nbsp;|&nbsp;<a href="journals.htm">Journals</a>
-        &nbsp;|&nbsp;<a href="thesis.htm">Thesis</a>
+        &nbsp;|&nbsp;<a href="thesis.htm">Theses</a>
         &nbsp;|&nbsp;<a href="http://clas.caltech.edu/ftlist">What's New This Month</a>
         &nbsp;|&nbsp;<a href="http://library.caltech.edu/techservices/archives/archives.htm">Previous Months</a>
         </p>
 <!-- <p>View by: <span class="newacq-sort" style="font-weight:bold;">Subject</span></p> -->
-<div id="newacq-navlinks">
 
 EOM
 
-  print "DEBUG $pagetitle, $libname, $dateintl" . EOL;
   return $out;
 }
 
 # Library-specific footer.  Code you use between the EOMs will finish the Web page.
 # You can use any of the date variables above, as well as $libname from above and $pagetitle from the main script.
 
-sub insert_footer {
+sub page_footer {
     my ($dateus) = @_;
 
     return <<EOM;
@@ -151,27 +150,54 @@ EOM
 
 }
 
+# Author last name navigation
+
+sub page_author_nav {
+  my @out = ();
+  push @out, '<div id="newacq-navlinks">' . EOL;
+  push @out, '<ul style="margin:0;padding:0;">' . EOL;
+  push @out, '<li style="display:inline;white-space:nowrap;"><a name="top"> &#183;</a></li>' . EOL;
+
+  foreach my $alpha (A..Z) {
+    if (List::Util::first {$_ eq $alpha} @_) {
+      push @out, '<li style="display:inline;white-space:nowrap;"><a href="#' . $alpha . '">' . $alpha . '</a> &#183;</li>';
+    } else {
+      push @out, '<li style="display:inline;white-space:nowrap;">'. $alpha . ' &#183;</li>';
+    }
+  }
+  push @out, '</ul></div><!-- END id="newacq-navlinks" -->' . EOL;
+  return join (" ", @out);
+}
 # Library-specific record markup.
 
 sub insert_record {
   my %record = @_;
-  my ( $author, $title, $note, $mark, $location, $bibno ) = (
-    BooksList::getAuthorsOnly(%record),
-    BooksList::getTitleOnly(%record),
-    $record{"NOTE"},
-    $record{"MARK"},
-    $record{"LOCATION"},
-    $record{"RECORD #"}
-  );
+  my $author = BooksList::getAuthorsOnly(%record) || "";
+  my $title  = BooksList::getTitleOnly(%record) || "";
+  my $note   = $record{"NOTE"} || "";
+  my $marc   = $record{"MARC"} || "";
+  my $location = $record{"LOCATION"} || "";
+  my $bibno = $record{"RECORD #"} || "";
+  my $link = "";
   my $out = "";
+
+  if (defined $record{"MARC"}) {
+      $link = '<a href="' . $marc . '">Library Catalog Record</a>';
+  } else {
+      $link = '<a href="' . $serverbase . '/record=' . $bibno .
+        '" target="_blank" class="newacq-catlink">Library Catalog Record</a></p>';
+  }
 
   $out = <<EOM;
           <tr class="newacq-item">
             <td class="newacq-itemdesc">
-              <p class="newacq-author">$author</p>
-              <p class="newacq-bib"><span class="newacq-title">$title</span>
-              <br /><span class="newacq-pub">$note</span>
-              <a href="http://clas.caltech.edu/record=$bibno" target="_blank" class="newacq-catlink">Library Catalog Record</a></p>
+              <p class="newacq-bib">
+                <span class="newacq-author">$author</span>
+                <br /><span class="newacq-title">$title</span>
+                <br /><span class="newacq-pub">$note</span>
+                <br /><span class="newacq-location">$location</span>
+                <br />$link
+              </p>
             </td>
           </tr>
 EOM
@@ -254,6 +280,7 @@ $datelastbuild =
     my $record_count = BooksList::recordCount(@records);
     my @out = ();
     my $alpha = "";
+    my @author_nav = ();
     my $section = "";
 
 # FIXME: Process list into HTML page.
@@ -262,25 +289,26 @@ $datelastbuild =
 
 # Each entry format is Author, Title, Note, Location, Bib number (i.e. RECORD when begins with b is)
 
-    push @out, insert_header($pagetitle, $libname, $dateintl);
     for (my $i = 0; $i < $record_count; $i++ ) {
       my %record = %{$records[$i]};
 
       $author = BooksList::lastName(BooksList::getAuthorsOnly(%record));
       if (substr($author, 0, 1) ne $alpha) {
-        $section = ""
+        $section = "";
         if ($alpha ne "") {
           $section .= <<EOM;
           </tr>
           </table>
+          <p><a href="#top">[Return to Top]</a></p>
 
 EOM
         }
         ## FIXME: output section heading linked to A-Z zip line.
         $alpha = substr($author, 0, 1);
+        push @author_nav, $alpha;
         $section .= <<EOM;
-          <h2 class="newacq-subjheading">$alpha
-          <a href="$feedserver/$alpha.xml"><img src="rss.png" alt="Subscribe to the RSS feed for recent author additions with family name starting with $alpha" title="Subscribe to the RSS feed for recent additions in Astronomy" class="newacq-rssimage" /></a>
+          <h2 class="newacq-subjheading"><a name="$alpha">$alpha</a>
+          <a href="$feedserver/$alpha.xml"><img src="rss.png" alt="Subscribe to the RSS feed for recent author additions with last name starting with $alpha" title="Subscribe to the RSS feed for recent additions in Astronomy" class="newacq-rssimage" /></a>
           </h2>
           <table class="newacq-itemtable">
 EOM
@@ -291,18 +319,22 @@ EOM
     if ($alpha ne "") {
       $section = <<EOM;
       </table>
+      <p><a href="#top">[Return to Top]</a></p>
 
 EOM
       push @out, $section;
     }
 
-    push @out, insert_footer($dateus);
 
-    print "Writing $outputfile" . EOL;
 
+    print "Writing $outputfile... ";
     open (OUT, ">$outputfile") or die("Can't write to $outputfile");
+    print OUT page_header($pagetitle, $libname, $dateintl);
+    print OUT page_author_nav(@author_nav);
     print OUT join("\n", @out);
+    print OUT page_footer($dateus);
     close(OUT);
+    print " done." . EOL;
 
 # FIXME: Process list into RSS Feed.
 # FIXME: Process list into RSSJS feed.

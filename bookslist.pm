@@ -163,10 +163,6 @@ sub parseToList {
     }
     if ( $recording == 1 ) {
         push @records, {%rec};
-        $recording = 0;
-        %rec       = ();
-        $key       = "";
-        $value     = "";
     }
 
     # return the records array
