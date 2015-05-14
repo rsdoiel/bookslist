@@ -170,7 +170,7 @@ sub page_author_nav {
 }
 # Library-specific record markup.
 
-sub insert_record {
+sub page_item {
   my %record = @_;
   my $author = BooksList::getAuthorsOnly(%record) || "";
   my $title  = BooksList::getTitleOnly(%record) || "";
@@ -206,6 +206,48 @@ EOM
 }
 
 # =============== END PAGE FORMATTING ================================
+
+# =============== BEGIN FEED FORMATTING ==============================
+
+sub channel_header {
+    my ($title, $link, $description, $year, $lastBuildDate) = @_;
+    my $out = <<EOM;
+<?xml version="1.0" encoding="iso-8859-1" ?>
+<rss version="2.0">
+  <channel>
+    <title>$title</title>
+    <link>$link</link>
+    <description>$description</description>
+    <copyright>Copyright $year; Caltech Library</copyright>
+    <language>en-us</language>
+    <lastBuildDate>$lastBuildDate</lastBuildDate>
+
+EOM
+
+  return $out;
+}
+
+sub channel_item {
+  my ($title, $link) = @_;
+  my $out = <<EOM;
+    <item>
+      <title>$title</title>
+      <link>$link</link>
+    </item>
+EOM
+
+  return $out;
+}
+
+
+sub channel_footer {
+  my $out = <<EOM;
+  </channel>
+</rss>
+EOM
+  return $out;
+}
+# =============== END FEED FORMATTING ================================
 
 # ===== No need to edit this script past this point. ======
 
@@ -278,7 +320,9 @@ $datelastbuild =
 {
     my @records = BooksList::fileToList($inputfile);
     my $record_count = BooksList::recordCount(@records);
-    my @out = ();
+    my @page = ();
+    my %feeds = ();
+    my $feed_key = " ";
     my $alpha = "";
     my @author_nav = ();
     my $section = "";
@@ -302,6 +346,8 @@ $datelastbuild =
           <p><a href="#top">[Return to Top]</a></p>
 
 EOM
+          ## FIXME: write out Alpha feed.
+          $feed_key = $alpha;
         }
         ## FIXME: output section heading linked to A-Z zip line.
         $alpha = substr($author, 0, 1);
@@ -312,9 +358,9 @@ EOM
           </h2>
           <table class="newacq-itemtable">
 EOM
-        push @out, $section;
+        push @page, $section;
       }
-      push @out, insert_record(%record);
+      push @page, page_item(%record);
     }
     if ($alpha ne "") {
       $section = <<EOM;
@@ -322,22 +368,51 @@ EOM
       <p><a href="#top">[Return to Top]</a></p>
 
 EOM
-      push @out, $section;
+      push @page, $section;
     }
-
-
 
     print "Writing $outputfile... ";
     open (OUT, ">$outputfile") or die("Can't write to $outputfile");
     print OUT page_header($pagetitle, $libname, $dateintl);
     print OUT page_author_nav(@author_nav);
-    print OUT join("\n", @out);
+    print OUT join("\n", @page);
     print OUT page_footer($dateus);
     close(OUT);
     print " done." . EOL;
 
-# FIXME: Process list into RSS Feed.
-# FIXME: Process list into RSSJS feed.
+    print "Writing feeds... ";
+    $alpha = "";
+    my $link = "";
+    for (my $i = 0; $i < $record_count; $i++ ) {
+      my %record = %{$records[$i]};
+      $author = BooksList::lastName(BooksList::getAuthorsOnly(%record));
+      if (substr($author, 0, 1) ne $alpha) {
+        if ($alpha ne "") {
+          print ", ";
+          print OUT channel_footer();
+          close (OUT);
+        }
+        $alpha = substr($author, 0, 1);
+        print $alpha;
+        open (OUT, ">$localfeedsdir\\$alpha.xml") or die ("Can't write $localfeedsdir\\$alpha.xml");
+        print OUT channel_header(
+          "Theses with authors last name starting with $alpha",
+          $feedserver,
+          "CalTech Theses add to the library collection.",
+          $year,
+          $datelastbuild
+        );
+      }
+      if (defined $record{"MARC"}) {
+          $link = $marc;
+      } else {
+          $link = $serverbase . '/record=' . $record{"RECORD #"};
+      }
+      print OUT channel_item($record{"TITLE"}, $link);
+    }
+    print OUT channel_footer();
+    close (OUT);
+    print " done." . EOL;
 
     # Everything must have worked, return with no errors.
     exit 0;

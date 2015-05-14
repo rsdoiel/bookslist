@@ -2,3 +2,6 @@
 *.bak
 *.json
 *.htm
+*feeds*
+temp?.txt
+*.xml
