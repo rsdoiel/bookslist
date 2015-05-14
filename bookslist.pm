@@ -1,9 +1,9 @@
-#!/usr/bin/env perl
+﻿#!/usr/bin/env perl
 # BooksList.pm - Provide some general utility methods for working with BooksList exported lists.
 #
 # @author R. S. Doiel, <rsdoiel@caltech.edu>
 # copyright (c) 2015 California Institution of Technology
-#
+# v0.0.2
 package BooksList;
 use v5.16;
 

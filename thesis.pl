@@ -1,8 +1,9 @@
 #!/usr/bin/env perl
-#############################################################################################
-##### thesis.pl - Generate webpages and RSS feed of new thesis with new BooksLists module
-##### 2015-05-05 RSD
-#############################################################################################
+# thesis.pl - Generate webpages and RSS feed of new thesis with new BooksLists module
+#
+# @author R. S. Doiel, <rsdoiel@caltech.edu>
+# copyright (c) 2015 California Institution of Technology
+# v0.0.2
 use List::Util;
 use BooksList;
 use JSON;

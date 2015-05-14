@@ -16,3 +16,7 @@ clean:
 	/bin/rm *.xml
 	/bin/rm *.bak
 
+
+package:
+	zip thesis.zip bookslist.pm thesis.pl
+
