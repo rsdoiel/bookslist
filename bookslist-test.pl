@@ -5,6 +5,7 @@
 # copyright (c) 2015 California Institute of Technologuy
 # All rights reserved
 #
+use File::Spec;
 use BooksList;
 use constant EOL => "\n";
 
@@ -62,7 +63,8 @@ sub testCorrectAsserts {
 }
 
 sub testFunctions {
-    my $in_filename = "test-data/proof-of-concept-parser.txt";
+    my $in_filename = File::Spec->catfile(File::Spec->rel2abs("test-data"),
+      "proof-of-concept-parser.txt");
     my $src         = "";
     my $output      = "";
     my @list0       = ();
@@ -125,7 +127,8 @@ sub testThesisFeed {
     isEqual( $record_count, 91,
         "Should find 91 thesis records in test-data/thesis.txt [$record_count]"
     );
-    @records      = BooksList::fileToList("test-data/2015thesis.txt");
+    @records      = BooksList::fileToList(
+      File::Spec->catfile(File::Spec->rel2abs("test-data"), "2015thesis.txt"));
     $record_count = BooksList::recordCount(@records);
     isEqual( $record_count, 88,
         "Should find 88 thesis records in test-data/thesis.txt [$record_count]"
@@ -209,4 +212,3 @@ testAuthorsOnly();
 testTitleOnly();
 testLastName();
 print "Success!\n";
-

@@ -4,9 +4,10 @@
 # @author R. S. Doiel, <rsdoiel@caltech.edu>
 # copyright (c) 2015 California Institution of Technology
 # v0.0.2
+use File::Path qw(make_path);
+use File::Spec::Functions qw(rel2abs catfile);
 use List::Util;
 use BooksList;
-use JSON;
 
 use constant EOL => "\n";
 
@@ -20,7 +21,7 @@ $filter_by = "CALL #";
 $filter_value = "THESIS";
 
 # Set the path/name of the input file (the review file from III):
-$inputfile = "thesis.txt";
+$inputfile = rel2abs("thesis.txt");
 
 # Set the path/name of the output file (the Web page we're creating); folders must already exist:
 $outputfile = "thesis.htm";
@@ -37,7 +38,7 @@ $feedlinks = 1;    # 0 for no; 1 for yes.
 $rssimage = "rss.png";
 
 # Set the path to the feeds directory on the LOCAL machine (where the script output will go); folders must already exist:
-$localfeedsdir = "thesis\\";
+$localfeedsdir = catfile(".", "thesis");
 
 # Set the full URL for where the feeds will live; do not include trailing slash:
 $feedserver = "http://library.caltech.edu/techservices/new/thesisfeeds";
@@ -393,6 +394,14 @@ EOM
     close(OUT);
     print " done." . EOL;
 
+    # Make sure $localfeedsdir exists and if not create it.
+    if (-d $localfeedsdir) {
+        print "Feed directory $localfeedsdir" . EOL;
+    } else {
+        print "Making $localfeedsdir" . EOL;
+        make_path(rel2abs($localfeedsdir))
+          || die("Can't create " . rel2abs($localfeedsdir));
+    }
     print "Writing feeds... ";
     $alpha = "";
     my $link = "";
@@ -407,8 +416,8 @@ EOM
             }
             $alpha = substr( $author, 0, 1 );
             print $alpha;
-            open( OUT, ">$localfeedsdir\\$alpha.xml" )
-              or die("Can't write $localfeedsdir\\$alpha.xml");
+            open( OUT, ">" . catfile($localfeedsdir, "$alpha.xml"))
+              or die("Can't write " . catfile($localfeedsdir, "$alpha.xml"));
             print OUT channel_header(
                 "Theses with authors last name starting with $alpha",
                 $feedserver,

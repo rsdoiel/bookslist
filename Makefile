@@ -13,7 +13,8 @@ run: test
 
 clean:
 	/bin/rm *.htm
-	/bin/rm *.xml
+	/bin/rm thesis/*.xml
+	/bin/rmdir thesis
 	/bin/rm *.bak
 
 
