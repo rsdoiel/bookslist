@@ -1,0 +1,987 @@
+
+
+CALL # = THESIS. 
+AUTHOR = Agarwal, Anish, author. 
+TITLE = A model for residential adoption of photovoltaic systems / Anish Agarwal
+; K. Mani Chandy, advisor. 
+NOTE = Thesis (Masters) -- California Institute of Technology, 2015. 
+MARC = http://resolver.caltech.edu/CaltechTHESIS:03202015-082016718. 
+LOCATION = World Wide Web. 
+CALL # = THESIS. 
+RECORD # = b1513247x. 
+
+
+CALL # = THESIS. 
+AUTHOR = Agarwal, Anish, author. 
+TITLE = A model for residential adoption of photovoltaic systems / Anish Agarwal
+; K. Mani Chandy, advisor. 
+NOTE = Thesis (Masters) -- California Institute of Technology, 2015. 
+LOCATION = Library Annex. 
+CALL # = THESIS. 
+RECORD # = b15132560. 
+
+
+CALL # = THESIS. 
+AUTHOR = Agbo, Peter Chukwudi Ifeanychukwu, author. 
+TITLE = Development of metalloenzyme dioxygen reduction cathodes / Peter 
+Chukwudi Ifeanychukwu Agbo ; Harry B. Gray, advisor ; James R. Heath, co-advisor
+; John H. Richards, committee chair. 
+NOTE = Thesis (Ph. D.) -- California Institute of Technology, 2015. 
+MARC = http://resolver.caltech.edu/CaltechTHESIS:09192014-121956600. 
+LOCATION = World Wide Web. 
+CALL # = THESIS. 
+RECORD # = b15129172. 
+
+
+CALL # = TK2931. 
+CALL # = THESIS. 
+AUTHOR = Agbo, Peter Chukwudi Ifeanychukwu, author. 
+TITLE = Development of metalloenzyme dioxygen reduction cathodes / Peter 
+Chukwudi Ifeanychukwu Agbo ; Harry B. Gray, advisor ; James R. Heath, co-
+advisor. 
+NOTE = Thesis (Ph. D.) -- California Institute of Technology, 2015. 
+LOCATION = Library Annex. 
+CALL # = TK2931. 
+CALL # = THESIS. 
+RECORD # = b15132328. 
+
+
+CALL # = THESIS. 
+AUTHOR = Asimakopoulos, Aristotelis, author. 
+TITLE = Macroscopically dissipative systems with underlying microscopic dynamics
+: properties and limits of measurement / Aristotelis Asimakopoulos ; John 
+Comstock Doyle, advisor, and Ali Hajimiri, committee chair. 
+NOTE = Thesis (Ph. D.) -- California Institute of Technology, 2015. 
+MARC = http://resolver.caltech.edu/CaltechTHESIS:09082014-135331211. 
+LOCATION = World Wide Web. 
+CALL # = THESIS. 
+RECORD # = b15129184. 
+
+
+
+
+CALL # = THESIS. 
+AUTHOR = Asimakopoulos, Aristotelis, author. 
+TITLE = Macroscopically dissipative systems with underlying microscopic dynamics
+: properties and limits of measurement / Aristotelis Asimakopoulos ; John 
+Comstock Doyle, advisor. 
+NOTE = Thesis (Ph. D.) -- California Institute of Technology, 2015. 
+LOCATION = Library Annex. 
+CALL # = THESIS. 
+RECORD # = b1513233x. 
+
+
+CALL # = THESIS. 
+AUTHOR = Callahan, Dennis Michael, author. 
+TITLE = Nanophotonic light trapping in thin solar cells / Dennis Michael 
+Callahan ; Harry Albert Atwater, advisor and committee chair. 
+NOTE = Thesis (Ph. D.) -- California Institute of Technology, 2015. 
+MARC = http://resolver.caltech.edu/CaltechTHESIS:10082014-105407332. 
+LOCATION = World Wide Web. 
+CALL # = THESIS. 
+RECORD # = b15129196. 
+
+
+CALL # = THESIS. 
+AUTHOR = Callahan, Dennis Michael, author. 
+TITLE = Nanophotonic light trapping in thin solar cells / Dennis Michael 
+Callahan ; Harry Albert Atwater, advisor. 
+NOTE = Thesis (Ph. D.) -- California Institute of Technology, 2015. 
+LOCATION = Library Annex. 
+CALL # = THESIS. 
+RECORD # = b15132341. 
+
+
+CALL # = THESIS. 
+AUTHOR = Cho, Kangwoo, author. 
+TITLE = Wastewater electrolysis cell for environmental pollutants degradation 
+and molecular hydrogen generation / Kangwoo Cho ; Michael R. Hoffmann, advisor. 
+NOTE = Thesis (Ph. D.) -- California Institute of Technology, 2015. 
+MARC = http://resolver.caltech.edu/CaltechTHESIS:07312014-164509193. 
+LOCATION = World Wide Web. 
+CALL # = THESIS. 
+RECORD # = b15131683. 
+
+
+CALL # = THESIS. 
+AUTHOR = Cho, Kangwoo, author. 
+TITLE = Wastewater electrolysis cell for environmental pollutants degradation 
+and molecular hydrogen generation / Kangwoo Cho ; Michael R. Hoffmann, advisor. 
+NOTE = Thesis (Ph. D.) -- California Institute of Technology, 2015. 
+LOCATION = Library Annex. 
+CALL # = THESIS. 
+RECORD # = b15131993. 
+
+
+
+
+CALL # = THESIS. 
+AUTHOR = Cohen, Justin Daniel, author. 
+TITLE = Fiber-optic integration and efficient detection schemes for 
+optomechanical resonators / Justin Daniel Cohen ; Oskar J. Painter, advisor. 
+NOTE = Thesis (Ph. D.) -- California Institute of Technology, 2015. 
+MARC = http://resolver.caltech.edu/CaltechTHESIS:03312015-144223105. 
+LOCATION = World Wide Web. 
+CALL # = THESIS. 
+RECORD # = b15132729. 
+
+
+CALL # = THESIS. 
+AUTHOR = Cohen, Justin Daniel, author. 
+TITLE = Fiber-optic integration and efficient detection schemes for 
+optomechanical resonators / Justin Daniel Cohen ; Oskar J. Painter, advisor. 
+NOTE = Thesis (Ph. D.) -- California Institute of Technology, 2015. 
+LOCATION = Library Annex. 
+CALL # = THESIS. 
+RECORD # = b15132730. 
+
+
+CALL # = THESIS. 
+AUTHOR = Coralic, Vedran, author. 
+TITLE = Simulation of shock-induced bubble collapse with application to vascular
+injury in shockwave lithotripsy / Vedran Coralic ; Timothy E. Colonius, advisor.
+NOTE = Thesis (Ph. D.) -- California Institute of Technology, 2015. 
+MARC = http://resolver.caltech.edu/CaltechTHESIS:01222015-234921548. 
+LOCATION = World Wide Web. 
+CALL # = THESIS. 
+RECORD # = b15131695. 
+
+
+CALL # = THESIS. 
+AUTHOR = Coralic, Vedran, author. 
+TITLE = Simulation of shock-induced bubble collapse with application to vascular
+injury in shockwave lithotripsy / Vedran Coralic ; Timothy E. Colonius, advisor.
+NOTE = Thesis (Ph. D.) -- California Institute of Technology, 2015. 
+LOCATION = Library Annex. 
+CALL # = THESIS. 
+RECORD # = b15132006. 
+
+
+CALL # = THESIS. 
+AUTHOR = Cvicek, Vaclav, author. 
+TITLE = Structure prediction of G-protein coupled receptors / Vaclav Cvicek ; 
+William A., III Goddard, advisor. 
+NOTE = Thesis (Ph. D.) -- California Institute of Technology, 2015. 
+MARC = http://resolver.caltech.edu/CaltechTHESIS:02042015-031802985. 
+LOCATION = World Wide Web. 
+CALL # = THESIS. 
+RECORD # = b15132481. 
+
+
+
+
+CALL # = THESIS. 
+AUTHOR = Cvicek, Vaclav, author. 
+TITLE = Structure prediction of G-protein coupled receptors / Vaclav Cvicek ; 
+William A., III Goddard, advisor. 
+NOTE = Thesis (Ph. D.) -- California Institute of Technology, 2015. 
+LOCATION = Library Annex. 
+CALL # = THESIS. 
+RECORD # = b15132572. 
+
+
+CALL # = THESIS. 
+AUTHOR = Dasgupta, Kaushik, author. 
+TITLE = Self-healing techniques for RF and mm-Wave transmitters and receivers / 
+Kaushik Dasgupta ; Ali Hajimiri, advisor. 
+NOTE = Thesis (Ph. D.) -- California Institute of Technology, 2015. 
+MARC = http://resolver.caltech.edu/CaltechTHESIS:10282014-113257585. 
+LOCATION = World Wide Web. 
+CALL # = THESIS. 
+RECORD # = b15131701. 
+
+
+CALL # = THESIS. 
+AUTHOR = Dasgupta, Kaushik, author. 
+TITLE = Self-healing techniques for RF and mm-Wave transmitters and receivers / 
+Kaushik Dasgupta ; Ali Hajimiri, advisor. 
+NOTE = Thesis (Ph. D.) -- California Institute of Technology, 2015. 
+LOCATION = Library Annex. 
+CALL # = THESIS. 
+RECORD # = b15132018. 
+
+
+CALL # = THESIS. 
+AUTHOR = Fakonas, James S., author. 
+TITLE = Quantum interference and entanglement of surface plasmons / James S. 
+Fakonas ; Harry A. Atwater, advisor. 
+NOTE = Thesis (Ph. D.) -- California Institute of Technology, 2015. 
+MARC = http://resolver.caltech.edu/CaltechTHESIS:12052014-101005469. 
+LOCATION = World Wide Web. 
+CALL # = THESIS. 
+RECORD # = b15131713. 
+
+
+CALL # = THESIS. 
+AUTHOR = Fakonas, James S., author. 
+TITLE = Quantum interference and entanglement of surface plasmons / James S. 
+Fakonas ; Harry A. Atwater, advisor. 
+NOTE = Thesis (Ph. D.) -- California Institute of Technology, 2015. 
+LOCATION = Library Annex. 
+CALL # = THESIS. 
+RECORD # = b1513202x. 
+
+
+
+
+CALL # = THESIS. 
+AUTHOR = Farwell, Christopher C., author. 
+TITLE = Engineering and characterization of cytochrome P450 enzymes for nitrogen
+-atom transfer reactions / Christopher C. Farwell ; Frances Hamilton Arnold, 
+advisor. 
+NOTE = Thesis (Ph. D.) -- California Institute of Technology, 2015. 
+MARC = http://resolver.caltech.edu/CaltechTHESIS:01302015-155404718. 
+LOCATION = World Wide Web. 
+CALL # = THESIS. 
+RECORD # = b15132493. 
+
+
+CALL # = THESIS. 
+AUTHOR = Farwell, Christopher C., author. 
+TITLE = Engineering and characterization of cytochrome P450 enzymes for nitrogen
+-atom transfer reactions / Christopher C. Farwell ; Frances Hamilton Arnold, 
+advisor. 
+NOTE = Thesis (Ph. D.) -- California Institute of Technology, 2015. 
+LOCATION = Library Annex. 
+CALL # = THESIS. 
+RECORD # = b15132584. 
+
+
+CALL # = THESIS. 
+AUTHOR = Findeisen, Krzysztof, author. 
+TITLE = New insights from aperiodic variability of young stars / Krzysztof 
+Findeisen ; Lynne A. Hillenbrand, advisor ; Charles C. Steidel, committee chair.
+NOTE = Thesis (Ph. D.) -- California Institute of Technology, 2015. 
+LOCATION = Library Annex. 
+CALL # = THESIS. 
+RECORD # = b1511773x. 
+
+
+CALL # = THESIS. 
+AUTHOR = Findeisen, Krzysztof, author. 
+TITLE = New insights from aperiodic variability of young stars / Krzysztof 
+Findeisen ; Lynne A. Hillenbrand, advisor ; Charles C. Steidel, committee chair.
+NOTE = Thesis (Ph. D.) -- California Institute of Technology, 2015. 
+MARC = http://resolver.caltech.edu/CaltechTHESIS:08272014-105550096. 
+LOCATION = World Wide Web. 
+CALL # = THESIS. 
+RECORD # = b15117741. 
+
+
+CALL # = THESIS. 
+AUTHOR = Fong, Henry, author. 
+TITLE = Metallaboratrane facilitated E-H bond activation and hydrogenation 
+catalysis / Henry Fong ; Jonas C. Peters, advisor. 
+NOTE = Thesis (Ph. D.) -- California Institute of Technology, 2015. 
+MARC = http://resolver.caltech.edu/CaltechTHESIS:12152014-181907516. 
+LOCATION = World Wide Web. 
+CALL # = THESIS. 
+RECORD # = b15131737. 
+
+
+
+
+CALL # = THESIS. 
+AUTHOR = Fong, Henry, author. 
+TITLE = Metallaboratrane facilitated E-H bond activation and hydrogenation 
+catalysis / Henry Fong ; Jonas C. Peters, advisor. 
+NOTE = Thesis (Ph. D.) -- California Institute of Technology, 2015. 
+LOCATION = Library Annex. 
+CALL # = THESIS. 
+RECORD # = b15132043. 
+
+
+CALL # = THESIS. 
+AUTHOR = Gan, Lingwen, author. 
+TITLE = Distributed load control in multiphase radial networks / Lingwen Gan ; 
+Steven H. Low, advisor. 
+NOTE = Thesis (Ph. D.) -- California Institute of Technology, 2015. 
+MARC = http://resolver.caltech.edu/CaltechTHESIS:01272015-214848277. 
+LOCATION = World Wide Web. 
+CALL # = THESIS. 
+RECORD # = b15131749. 
+
+
+CALL # = THESIS. 
+AUTHOR = Gan, Lingwen, author. 
+TITLE = Distributed load control in multiphase radial networks / Lingwen Gan ; 
+Steven H. Low, advisor. 
+NOTE = Thesis (Ph. D.) -- California Institute of Technology, 2015. 
+LOCATION = Library Annex. 
+CALL # = THESIS. 
+RECORD # = b15132055. 
+
+
+CALL # = THESIS. 
+AUTHOR = Gomez, Marcella Mary, author. 
+TITLE = On the role of delays in biological systems : analysis and design / 
+Marcella Mary Gomez ; Richard M. Murray, advisor ; Joel Wakeman Burdick, 
+committee chair. 
+NOTE = Thesis (Ph. D.) -- California Institute of Technology, 2015. 
+LOCATION = Library Annex. 
+CALL # = THESIS. 
+RECORD # = b15117704. 
+
+
+CALL # = THESIS. 
+AUTHOR = Gomez, Marcella Mary, author. 
+TITLE = On the role of delays in biological systems : analysis and design / 
+Marcella Mary Gomez ; Richard M. Murray, advisor ; Joel Wakeman Burdick, 
+committee chair. 
+NOTE = Thesis (Ph. D.) -- California Institute of Technology, 2015. 
+MARC = http://resolver.caltech.edu/CaltechTHESIS:08282014-165029252. 
+LOCATION = World Wide Web. 
+CALL # = THESIS. 
+RECORD # = b15117716. 
+
+
+
+
+CALL # = THESIS. 
+AUTHOR = Gu, Xun Wendy, author. 
+TITLE = Strength, deformation and fracture in metallic nanostructures / Xun 
+Wendy Gu ; Julia R. Greer, advisor. 
+NOTE = Thesis (Ph. D.) -- California Institute of Technology, 2015. 
+MARC = http://resolver.caltech.edu/CaltechTHESIS:02242015-173330087. 
+LOCATION = World Wide Web. 
+CALL # = THESIS. 
+RECORD # = b1513250x. 
+
+
+CALL # = THESIS. 
+AUTHOR = Gu, Xun Wendy, author. 
+TITLE = Strength, deformation and fracture in metallic nanostructures / Xun 
+Wendy Gu ; Julia R. Greer, advisor. 
+NOTE = Thesis (Ph. D.) -- California Institute of Technology, 2015. 
+LOCATION = Library Annex. 
+CALL # = THESIS. 
+RECORD # = b15132596. 
+
+
+CALL # = THESIS. 
+AUTHOR = Han, Chao, author. 
+TITLE = Wide field-of-view microscopes and endoscopes for time-lapse imaging and
+high-throughput screening / Chao Han ; Changhuei Yang, advisor. 
+NOTE = Thesis (Ph. D.) -- California Institute of Technology, 2015. 
+MARC = http://resolver.caltech.edu/CaltechTHESIS:01302015-101318815. 
+LOCATION = World Wide Web. 
+CALL # = THESIS. 
+RECORD # = b15132511. 
+
+
+CALL # = THESIS. 
+AUTHOR = Han, Chao, author. 
+TITLE = Wide field-of-view microscopes and endoscopes for time-lapse imaging and
+high-throughput screening / Chao Han ; Changhuei Yang, advisor. 
+NOTE = Thesis (Ph. D.) -- California Institute of Technology, 2015. 
+LOCATION = Library Annex. 
+CALL # = THESIS. 
+RECORD # = b15132602. 
+
+
+CALL # = THESIS. 
+AUTHOR = Heyden, Stefanie, author. 
+TITLE = Micromechanical damage and fracture in elastomeric polymers / Stefanie 
+Heyden ; Michael Ortiz, advisor. 
+NOTE = Thesis (Ph. D.) -- California Institute of Technology, 2015. 
+MARC = http://resolver.caltech.edu/CaltechTHESIS:12202014-233824767. 
+LOCATION = World Wide Web. 
+CALL # = THESIS. 
+RECORD # = b15131762. 
+
+
+
+
+CALL # = THESIS. 
+AUTHOR = Heyden, Stefanie, author. 
+TITLE = Micromechanical damage and fracture in elastomeric polymers / Stefanie 
+Heyden ; Michael Ortiz, advisor. 
+NOTE = Thesis (Ph. D.) -- California Institute of Technology, 2015. 
+LOCATION = Library Annex. 
+CALL # = THESIS. 
+RECORD # = b15132079. 
+
+
+CALL # = THESIS. 
+AUTHOR = Hong, Qi-Jun, author. 
+TITLE = Methods for melting temperature calculation / Qi-Jun Hong ; Axel van de 
+Walle, advisor. 
+NOTE = Thesis (Ph. D.) -- California Institute of Technology, 2015. 
+MARC = http://resolver.caltech.edu/CaltechTHESIS:11092014-074023936. 
+LOCATION = World Wide Web. 
+CALL # = THESIS. 
+RECORD # = b15131774. 
+
+
+CALL # = THESIS. 
+AUTHOR = Hong, Qi-Jun, author. 
+TITLE = Methods for melting temperature calculation / Qi-Jun Hong ; Axel van de 
+Walle, advisor. 
+NOTE = Thesis (Ph. D.) -- California Institute of Technology, 2015. 
+LOCATION = Library Annex. 
+CALL # = THESIS. 
+RECORD # = b15132080. 
+
+
+CALL # = THESIS. 
+AUTHOR = Kameel, Fathima Rifkha, author. 
+TITLE = Oxidation of volatile organic compounds in aqueous solution and at the 
+air-water interface of aqueous microdroplets / Fathima Rifkha Kameel ; Michael 
+R. Hoffmann, advisor. 
+NOTE = Thesis (Ph. D.) -- California Institute of Technology, 2015. 
+MARC = http://resolver.caltech.edu/CaltechTHESIS:10262014-094813435. 
+LOCATION = World Wide Web. 
+CALL # = THESIS. 
+RECORD # = b15131786. 
+
+
+CALL # = THESIS. 
+AUTHOR = Kameel, Fathima Rifkha, author. 
+TITLE = Oxidation of volatile organic compounds in aqueous solution and at the 
+air-water interface of aqueous microdroplets / Fathima Rifkha Kameel ; Michael 
+R. Hoffmann, advisor. 
+NOTE = Thesis (Ph. D.) -- California Institute of Technology, 2015. 
+LOCATION = Library Annex. 
+CALL # = THESIS. 
+RECORD # = b15132092. 
+
+
+
+
+CALL # = THESIS. 
+AUTHOR = Kammer, Joshua Andrew, author. 
+TITLE = Analyses of planetary atmospheres across the spectrum : from titan to 
+exoplanets / Joshua Andrew Kammer ; Yuk L. Yung, co-advisor ; Heather A. Knutson,
+co-advisor. 
+NOTE = Thesis (Ph. D.) -- California Institute of Technology, 2015. 
+MARC = http://resolver.caltech.edu/CaltechTHESIS:08312014-134619300. 
+LOCATION = World Wide Web. 
+CALL # = THESIS. 
+RECORD # = b15131798. 
+
+
+CALL # = THESIS. 
+AUTHOR = Kammer, Joshua Andrew, author. 
+TITLE = Analyses of planetary atmospheres across the spectrum : from titan to 
+exoplanets / Joshua Andrew Kammer ; Yuk L. Yung, co-advisor ; Heather A. Knutson,
+co-advisor. 
+NOTE = Thesis (Ph. D.) -- California Institute of Technology, 2015. 
+LOCATION = Library Annex. 
+CALL # = THESIS. 
+RECORD # = b15132109. 
+
+
+CALL # = THESIS. 
+AUTHOR = Kanady, Jacob Steven, author. 
+TITLE = Models of the oxygen-evolving complex of photosystem II / Jacob Steven 
+Kanady ; Theodor Agapie, advisor ; Jonas C. Peters, committee chair. 
+NOTE = Thesis (Ph. D.) -- California Institute of Technology, 2015. 
+LOCATION = Library Annex. 
+CALL # = THESIS. 
+RECORD # = b15117753. 
+
+
+CALL # = THESIS. 
+AUTHOR = Kanady, Jacob Steven, author. 
+TITLE = Models of the oxygen-evolving complex of photosystem II / Jacob Steven 
+Kanady ; Theodor Agapie, advisor ; Jonas C. Peters, committee chair. 
+NOTE = Thesis (Ph. D.) -- California Institute of Technology, 2015. 
+MARC = http://resolver.caltech.edu/CaltechTHESIS:08272014-031912941. 
+LOCATION = World Wide Web. 
+CALL # = THESIS. 
+RECORD # = b15117765. 
+
+
+CALL # = THESIS. 
+AUTHOR = Kimble, Jaclyn, author. 
+TITLE = The voting rights act, Shelby County, and redistricting: improving 
+estimates of racially polarized voting in a multiple-election context / Jaclyn 
+Kimble ; R. Michael Alvarez, advisor. 
+NOTE = Thesis (Ph. D.) -- California Institute of Technology, 2015. 
+MARC = http://resolver.caltech.edu/CaltechTHESIS:12152014-105910005. 
+LOCATION = World Wide Web. 
+CALL # = THESIS. 
+RECORD # = b15131804. 
+
+
+
+
+CALL # = THESIS. 
+AUTHOR = Kimble, Jaclyn, author. 
+TITLE = The voting rights act, Shelby County, and redistricting: improving 
+estimates of racially polarized voting in a multiple-election context / Jaclyn 
+Kimble ; R. Michael Alvarez, advisor. 
+NOTE = Thesis (Ph. D.) -- California Institute of Technology, 2015. 
+LOCATION = Library Annex. 
+CALL # = THESIS. 
+RECORD # = b15132110. 
+
+
+CALL # = THESIS. 
+AUTHOR = Kopf, Sebastian Hermann, author. 
+TITLE = From lakes to lungs : assessing microbial activity in diverse 
+environments / Sebastian Hermann Kopf ; Dianne K. Newman, advisor. 
+NOTE = Thesis (Ph. D.) -- California Institute of Technology, 2015. 
+MARC = http://resolver.caltech.edu/CaltechTHESIS:08182014-160835979. 
+LOCATION = World Wide Web. 
+CALL # = THESIS. 
+RECORD # = b15131816. 
+
+
+CALL # = THESIS. 
+AUTHOR = Kopf, Sebastian Hermann, author. 
+TITLE = From lakes to lungs : assessing microbial activity in diverse 
+environments / Sebastian Hermann Kopf ; Dianne K. Newman, advisor. 
+NOTE = Thesis (Ph. D.) -- California Institute of Technology, 2015. 
+LOCATION = Library Annex. 
+CALL # = THESIS. 
+RECORD # = b15132122. 
+
+
+CALL # = THESIS. 
+AUTHOR = Kretchmer, Joshua S., author. 
+TITLE = Direct simulation of proton-coupled electron transfer reaction dynamics 
+and mechanisms / Joshua S. Kretchmer ; Thomas F. Miller, advisor. 
+NOTE = Thesis (Ph. D.) -- California Institute of Technology, 2015. 
+MARC = http://resolver.caltech.edu/CaltechTHESIS:01202015-085910230. 
+LOCATION = World Wide Web. 
+CALL # = THESIS. 
+RECORD # = b15131828. 
+
+
+CALL # = THESIS. 
+AUTHOR = Kretchmer, Joshua S., author. 
+TITLE = Direct simulation of proton-coupled electron transfer reaction dynamics 
+and mechanisms / Joshua S. Kretchmer ; Thomas F. Miller, advisor. 
+NOTE = Thesis (Ph. D.) -- California Institute of Technology, 2015. 
+LOCATION = Library Annex. 
+CALL # = THESIS. 
+RECORD # = b15132134. 
+
+
+
+
+CALL # = THESIS. 
+AUTHOR = Lim, Keng-Wit, author. 
+TITLE = Discrete modeling of granular media: a NURBS-based approach / Keng-Wit 
+Lim ; Jose E. Andrade, advisor. 
+NOTE = Thesis (Ph. D.) -- California Institute of Technology, 2015. 
+MARC = http://resolver.caltech.edu/CaltechTHESIS:12042014-104112714. 
+LOCATION = World Wide Web. 
+CALL # = THESIS. 
+RECORD # = b1513183x. 
+
+
+CALL # = THESIS. 
+AUTHOR = Lim, Keng-Wit, author. 
+TITLE = Discrete modeling of granular media: a NURBS-based approach / Keng-Wit 
+Lim ; Jose E. Andrade, advisor. 
+NOTE = Thesis (Ph. D.) -- California Institute of Technology, 2015. 
+LOCATION = Library Annex. 
+CALL # = THESIS. 
+RECORD # = b15132146. 
+
+
+CALL # = THESIS. 
+AUTHOR = Lim, Rod S., author. 
+TITLE = How resources control aggression in Drosophila / Rod S. Lim ; David J. 
+Anderson, advisor. 
+NOTE = Thesis (Ph. D.) -- California Institute of Technology, 2015. 
+MARC = http://resolver.caltech.edu/CaltechTHESIS:11222014-220142839. 
+LOCATION = World Wide Web. 
+CALL # = THESIS. 
+RECORD # = b15131841. 
+
+
+CALL # = THESIS. 
+AUTHOR = Lim, Rod S., author. 
+TITLE = How resources control aggression in Drosophila / Rod S. Lim ; David J. 
+Anderson, advisor. 
+NOTE = Thesis (Ph. D.) -- California Institute of Technology, 2015. 
+LOCATION = Library Annex. 
+CALL # = THESIS. 
+RECORD # = b15132158. 
+
+
+CALL # = THESIS. 
+AUTHOR = Limaye, Ajay Brian Sanjay, author. 
+TITLE = Valley evolution by meandering rivers / Ajay Brian Sanjay Limaye ; 
+Michael P. Lamb, advisor. 
+NOTE = Thesis (Ph. D.) -- California Institute of Technology, 2015. 
+MARC = http://resolver.caltech.edu/CaltechTHESIS:10272014-105243856. 
+LOCATION = World Wide Web. 
+CALL # = THESIS. 
+RECORD # = b15131853. 
+
+
+
+
+CALL # = THESIS. 
+AUTHOR = Limaye, Ajay Brian Sanjay, author. 
+TITLE = Valley evolution by meandering rivers / Ajay Brian Sanjay Limaye ; 
+Michael P. Lamb, advisor. 
+NOTE = Thesis (Ph. D.) -- California Institute of Technology, 2015. 
+LOCATION = Library Annex. 
+CALL # = THESIS. 
+RECORD # = b1513216x. 
+
+
+CALL # = THESIS. 
+AUTHOR = Lydon, Joseph John II, author. 
+TITLE = Nonlinear effects in granular crystals with broken periodicity / Joseph 
+John II Lydon ; Chiara Daraio, advisor. 
+NOTE = Thesis (Ph. D.) -- California Institute of Technology, 2015. 
+MARC = http://resolver.caltech.edu/CaltechTHESIS:01212015-023955427. 
+LOCATION = World Wide Web. 
+CALL # = THESIS. 
+RECORD # = b15131865. 
+
+
+CALL # = THESIS. 
+AUTHOR = Lydon, Joseph John II, author. 
+TITLE = Nonlinear effects in granular crystals with broken periodicity / Joseph 
+John II Lydon ; Chiara Daraio, advisor. 
+NOTE = Thesis (Ph. D.) -- California Institute of Technology, 2015. 
+LOCATION = Library Annex. 
+CALL # = THESIS. 
+RECORD # = b15132171. 
+
+
+CALL # = THESIS. 
+AUTHOR = McGuire, Brett Andrew, author. 
+TITLE = Time-domain terahertz spectroscopy and observational probes of prebiotic
+interstellar gas and ice chemistry / Brett Andrew McGuire ; Geoffrey A. Blake, 
+advisor ; Harry B. Gray, committee chair. 
+NOTE = Thesis (Ph. D.) -- California Institute of Technology, 2015. 
+LOCATION = Library Annex. 
+CALL # = THESIS. 
+RECORD # = b15117595. 
+
+
+CALL # = THESIS. 
+AUTHOR = McGuire, Brett Andrew, author. 
+TITLE = Time-domain terahertz spectroscopy and observational probes of prebiotic
+interstellar gas and ice chemistry / Brett Andrew McGuire ; Geoffrey A. Blake, 
+advisor ; Harry B. Gray, committee chair. 
+NOTE = Thesis (Ph. D.) -- California Institute of Technology, 2015. 
+MARC = http://resolver.caltech.edu/CaltechTHESIS:07232014-152145064. 
+LOCATION = World Wide Web. 
+CALL # = THESIS. 
+RECORD # = b15117601. 
+
+
+
+
+CALL # = THESIS. 
+AUTHOR = McNamee, Daniel Ciar{226}an, author. 
+TITLE = Neural and computational representations of decision variables / Daniel 
+Ciar{226}an McNamee ; John P. O'Doherty, advisor. 
+NOTE = Thesis (Ph. D.) -- California Institute of Technology, 2015. 
+MARC = http://resolver.caltech.edu/CaltechTHESIS:02242015-022259327. 
+LOCATION = World Wide Web. 
+CALL # = THESIS. 
+RECORD # = b15132535. 
+
+
+CALL # = THESIS. 
+AUTHOR = McNamee, Daniel Ciar{226}an, author. 
+TITLE = Neural and computational representations of decision variables / Daniel 
+Ciar{226}an McNamee ; John P. O'Doherty, advisor. 
+NOTE = Thesis (Ph. D.) -- California Institute of Technology, 2015. 
+LOCATION = Library Annex. 
+CALL # = THESIS. 
+RECORD # = b15132626. 
+
+
+CALL # = THESIS. 
+AUTHOR = Meenehan, Sean Michael, author. 
+TITLE = Cavity optomechanics at millikelvin temperatures / Sean Michael Meenehan
+; Oskar J. Painter, advisor. 
+NOTE = Thesis (Ph. D.) -- California Institute of Technology, 2015. 
+MARC = http://resolver.caltech.edu/CaltechTHESIS:03132015-135949868. 
+LOCATION = World Wide Web. 
+CALL # = THESIS. 
+RECORD # = b15132547. 
+
+
+CALL # = THESIS. 
+AUTHOR = Meenehan, Sean Michael, author. 
+TITLE = Cavity optomechanics at millikelvin temperatures / Sean Michael Meenehan
+; Oskar J. Painter, advisor. 
+NOTE = Thesis (Ph. D.) -- California Institute of Technology, 2015. 
+LOCATION = Library Annex. 
+CALL # = THESIS. 
+RECORD # = b15132638. 
+
+
+CALL # = THESIS. 
+AUTHOR = Ni, Jane, author. 
+TITLE = Development of asymmetric protonation reactions for the synthesis of 
+indoline alkaloids / Jane Ni ; Sarah E. Reisman, advisor. 
+NOTE = Thesis (Ph. D.) -- California Institute of Technology, 2015. 
+LOCATION = Library Annex. 
+CALL # = THESIS. 
+RECORD # = b15132195. 
+
+
+
+
+CALL # = THESIS. 
+AUTHOR = Ni, Jane, 1987- author. 
+TITLE = Development of asymmetric protonation reactions for the synthesis of 
+indoline alkaloids / Jane Ni ; Sarah E. Reisman, advisor ; Brian M. Stoltz, 
+committee chair. 
+NOTE = Thesis (Ph. D.) -- California Institute of Technology, 2015. 
+MARC = http://resolver.caltech.edu/CaltechTHESIS:09152014-112952177. 
+LOCATION = World Wide Web. 
+CALL # = THESIS. 
+RECORD # = b15118150. 
+
+
+CALL # = THESIS. 
+AUTHOR = Norte, Richard Alexander, author. 
+TITLE = Nanofabrication for on-chip optical levitation, atom-trapping, and 
+superconducting quantum circuits  / Richard Alexander Norte ; Oskar J. Painter, 
+advisor. 
+NOTE = Thesis (Ph. D.) -- California Institute of Technology, 2015. 
+MARC = http://resolver.caltech.edu/CaltechTHESIS:10292014-120111728. 
+LOCATION = World Wide Web. 
+CALL # = THESIS. 
+RECORD # = b15131890. 
+
+
+CALL # = THESIS. 
+AUTHOR = Norte, Richard Alexander, author. 
+TITLE = Nanofabrication for on-chip optical levitation, atom-trapping, and 
+superconducting quantum circuits  / Richard Alexander Norte ; Oskar J. Painter, 
+advisor. 
+NOTE = Thesis (Ph. D.) -- California Institute of Technology, 2015. 
+LOCATION = Library Annex. 
+CALL # = THESIS. 
+RECORD # = b15132201. 
+
+
+CALL # = THESIS. 
+AUTHOR = Oymak, Samet, author. 
+TITLE = Convex relaxation for low-dimensional representation : phase transitions
+and limitations / Samet Oymak ; Babak Hassibi, advisor and committee chair. 
+NOTE = Thesis (Ph. D.) -- California Institute of Technology, 2015. 
+LOCATION = Library Annex. 
+CALL # = THESIS. 
+RECORD # = b15117625. 
+
+
+CALL # = THESIS. 
+AUTHOR = Oymak, Samet, author. 
+TITLE = Convex relaxation for low-dimensional representation : phase transitions
+and limitations / Samet Oymak ; Babak Hassibi, advisor and committee chair. 
+NOTE = Thesis (Ph. D.) -- California Institute of Technology, 2015. 
+MARC = http://resolver.caltech.edu/CaltechTHESIS:08182014-091546460. 
+LOCATION = World Wide Web. 
+CALL # = THESIS. 
+RECORD # = b15117637. 
+
+
+
+
+CALL # = THESIS. 
+AUTHOR = Parker, Rell Lin, author. 
+TITLE = Lynx1 modulation of nicotinic acetylcholine receptors / Rell Lin Parker 
+; Henry A. Lester, advisor ; David C. Chan, committee chair. 
+NOTE = Thesis (Ph. D.) -- California Institute of Technology, 2015. 
+MARC = http://resolver.caltech.edu/CaltechTHESIS:06292014-232713483. 
+LOCATION = World Wide Web. 
+CALL # = THESIS. 
+RECORD # = b1511756x. 
+
+
+CALL # = THESIS. 
+AUTHOR = Parker, Rell Lin, author. 
+TITLE = Lynx1 modulation of nicotinic acetylcholine receptors / Rell Lin Parker 
+; Henry A. Lester, advisor. 
+NOTE = Thesis (Ph. D.) -- California Institute of Technology, 2015. 
+LOCATION = Library Annex. 
+CALL # = THESIS. 
+RECORD # = b15132225. 
+
+
+CALL # = THESIS. 
+AUTHOR = Ren, Xiaoqi, author. 
+TITLE = Speculation-aware resource allocation for cluster schedulers / Xiaoqi 
+Ren ; Adam C. Wierman, advisor. 
+NOTE = Thesis (Masters) -- California Institute of Technology, 2015. 
+MARC = http://resolver.caltech.edu/CaltechTHESIS:09252014-063715278. 
+LOCATION = World Wide Web. 
+CALL # = THESIS. 
+RECORD # = b15131920. 
+
+
+CALL # = THESIS. 
+AUTHOR = Ren, Xiaoqi, author. 
+TITLE = Speculation-aware resource allocation for cluster schedulers / Xiaoqi 
+Ren ; Adam C. Wierman, advisor. 
+NOTE = Thesis (Masters) -- California Institute of Technology, 2015. 
+LOCATION = Library Annex. 
+CALL # = THESIS. 
+RECORD # = b15132237. 
+
+
+CALL # = THESIS. 
+AUTHOR = Schaefer, Kathryn Nicole, author. 
+TITLE = DNA-mediated oxidation of transcription factor p53 / Kathryn Nicole 
+Schaefer ; Jacqueline K. Barton, advisor. 
+NOTE = Thesis (Ph. D.) -- California Institute of Technology, 2015. 
+MARC = http://resolver.caltech.edu/CaltechTHESIS:02122015-130640999. 
+LOCATION = World Wide Web. 
+CALL # = THESIS. 
+RECORD # = b15132559. 
+
+
+
+
+CALL # = THESIS. 
+AUTHOR = Schaefer, Kathryn Nicole, author. 
+TITLE = DNA-mediated oxidation of transcription factor p53 / Kathryn Nicole 
+Schaefer ; Jacqueline K. Barton, advisor. 
+NOTE = Thesis (Ph. D.) -- California Institute of Technology, 2015. 
+LOCATION = Library Annex. 
+CALL # = THESIS. 
+RECORD # = b1513264x. 
+
+
+CALL # = THESIS. 
+AUTHOR = Schenker, Matthew A., author. 
+TITLE = Did galaxies reionize the universe? / Matthew A. Schenker ; Richard S. 
+Ellis, advisor ; Gregg W. Hallinan, committee chair. 
+NOTE = Thesis (Ph. D.) -- California Institute of Technology, 2015. 
+LOCATION = Library Annex. 
+CALL # = THESIS. 
+RECORD # = b15117571. 
+
+
+CALL # = THESIS. 
+AUTHOR = Schenker, Matthew A., author. 
+TITLE = Did galaxies reionize the universe? / Matthew A. Schenker ; Richard S. 
+Ellis, advisor ; Gregg W. Hallinan, committee chair. 
+NOTE = Thesis (Ph. D.) -- California Institute of Technology, 2015. 
+MARC = http://resolver.caltech.edu/CaltechTHESIS:08012014-181643065. 
+LOCATION = World Wide Web. 
+CALL # = THESIS. 
+RECORD # = b15117583. 
+
+
+CALL # = THESIS. 
+AUTHOR = Singer, Leo Pound, author. 
+TITLE = The needle in the hundred square degree haystack: the hunt for binary 
+neutron star mergers with lIGO and palomar transient factory / Leo Pound Singer 
+; Alan Jay Weinstein, advisor ; Shrinivas R. Kulkarni, co-advisor. 
+NOTE = Thesis (Ph. D.) -- California Institute of Technology, 2015. 
+MARC = http://resolver.caltech.edu/CaltechTHESIS:12102014-223122387. 
+LOCATION = World Wide Web. 
+CALL # = THESIS. 
+RECORD # = b15131944. 
+
+
+CALL # = THESIS. 
+AUTHOR = Singer, Leo Pound, author. 
+TITLE = The needle in the hundred square degree haystack: the hunt for binary 
+neutron star mergers with lIGO and palomar transient factory / Leo Pound Singer 
+; Alan Jay Weinstein, advisor ; Shrinivas R. Kulkarni, co-advisor. 
+NOTE = Thesis (Ph. D.) -- California Institute of Technology, 2015. 
+LOCATION = Library Annex. 
+CALL # = THESIS. 
+RECORD # = b15132250. 
+
+
+
+
+CALL # = THESIS. 
+AUTHOR = Stack, Kathryn Marie, author. 
+TITLE = Reconstructing past depositional and diagenetic processes through 
+quantitative stratigraphic analysis of the martian sedimentary rock record / 
+Kathryn Marie Stack ; John P. Grotzinger, advisor. 
+NOTE = Thesis (Ph. D.) -- California Institute of Technology, 2015. 
+MARC = http://resolver.caltech.edu/CaltechTHESIS:12042014-212249920. 
+LOCATION = World Wide Web. 
+CALL # = THESIS. 
+RECORD # = b15131981. 
+
+
+CALL # = THESIS. 
+AUTHOR = Stack, Kathryn Marie, author. 
+TITLE = Reconstructing past depositional and diagenetic processes through 
+quantitative stratigraphic analysis of the martian sedimentary rock record / 
+Kathryn Marie Stack ; John P. Grotzinger, advisor. 
+NOTE = Thesis (Ph. D.) -- California Institute of Technology, 2015. 
+LOCATION = Library Annex. 
+CALL # = THESIS. 
+RECORD # = b15132298. 
+
+
+CALL # = THESIS. 
+AUTHOR = Suseno, Sandy, author. 
+TITLE = Homo- and heteronuclear transition metal complexes supported by 
+multinucleating ligands / Sandy Suseno ; Theodor Agapie, advisor. 
+NOTE = Thesis (Ph. D.) -- California Institute of Technology, 2015. 
+MARC = http://resolver.caltech.edu/CaltechTHESIS:11202014-184045649. 
+LOCATION = World Wide Web. 
+CALL # = THESIS. 
+RECORD # = b15131956. 
+
+
+CALL # = THESIS. 
+AUTHOR = Suseno, Sandy, author. 
+TITLE = Homo- and heteronuclear transition metal complexes supported by 
+multinucleating ligands / Sandy Suseno ; Theodor Agapie, advisor. 
+NOTE = Thesis (Ph. D.) -- California Institute of Technology, 2015. 
+LOCATION = Library Annex. 
+CALL # = THESIS. 
+RECORD # = b15132262. 
+
+
+CALL # = THESIS. 
+AUTHOR = Swanson, Erika M., author. 
+TITLE = Structural and clumped-isotope constraints on the mechanisms of 
+displacement along low-angle detachments / Erika M. Swanson ; Brian P. Wernicke,
+advisor. 
+NOTE = Thesis (Ph. D.) -- California Institute of Technology, 2015. 
+MARC = http://resolver.caltech.edu/CaltechTHESIS:10242014-133410215. 
+LOCATION = World Wide Web. 
+CALL # = THESIS. 
+RECORD # = b15131968. 
+
+
+
+
+CALL # = THESIS. 
+AUTHOR = Swanson, Erika M., author. 
+TITLE = Structural and clumped-isotope constraints on the mechanisms of 
+displacement along low-angle detachments / Erika M. Swanson ; Brian P. Wernicke,
+advisor. 
+NOTE = Thesis (Ph. D.) -- California Institute of Technology, 2015. 
+LOCATION = Library Annex. 
+CALL # = THESIS. 
+RECORD # = b15132274. 
+
+
+CALL # = THESIS. 
+AUTHOR = Wang, Rui, author. 
+TITLE = Effects of self energy of the ions on the double layer structure and 
+properties at the dielectric interface / Rui Wang ; Zhen-Gang Wang, advisor. 
+NOTE = Thesis (Ph. D.) -- California Institute of Technology, 2015. 
+MARC = http://resolver.caltech.edu/CaltechTHESIS:12102014-125310289. 
+LOCATION = World Wide Web. 
+CALL # = THESIS. 
+RECORD # = b1513197x. 
+
+
+CALL # = THESIS. 
+AUTHOR = Wang, Rui, author. 
+TITLE = Effects of self energy of the ions on the double layer structure and 
+properties at the dielectric interface / Rui Wang ; Zhen-Gang Wang, advisor. 
+NOTE = Thesis (Ph. D.) -- California Institute of Technology, 2015. 
+LOCATION = Library Annex. 
+CALL # = THESIS. 
+RECORD # = b15132286. 
+
+
