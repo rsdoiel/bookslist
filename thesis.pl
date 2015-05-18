@@ -38,7 +38,7 @@ $feedlinks = 1;    # 0 for no; 1 for yes.
 $rssimage = "rss.png";
 
 # Set the path to the feeds directory on the LOCAL machine (where the script output will go); folders must already exist:
-$localfeedsdir = catfile(".", "thesis");
+$localfeedsdir = catfile(".", "thesisfeeds");
 
 # Set the full URL for where the feeds will live; do not include trailing slash:
 $feedserver = "http://library.caltech.edu/techservices/new/thesisfeeds";
