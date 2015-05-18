@@ -117,7 +117,7 @@ sub page_header {
 
 	<body>
 	<div id="maincontent" style="width:90%;margin:auto;background:white;color:black;">
-	<div<a name="top"></a></div>
+	<div><a name="top"></a></div>
 
 <!-- Page content starts here -->
 
@@ -179,6 +179,8 @@ sub page_author_nav {
         }
     }
     push @out, '</ul></div><!-- END id="newacq-navlinks" -->' . EOL;
+    push @out, '<!-- begin recordsList -->' . EOL;
+    push @out, '<div id="newacq-navlinks">' . EOL;
     return join( " ", @out );
 }
 
@@ -379,11 +381,14 @@ EOM
     if ( $alpha ne "" ) {
         $section = <<EOM;
       </table>
-      <p><a href="#top">[Return to Top]</a></p>
-
+      <p class="newacq-ret2top"> <a href="#top">[Return to Top]</a> </p>
 EOM
         push @page, $section;
     }
+    $section = <<EOM;
+      </div><!-- end newacq-recordslist div -->
+EOM
+    push @page, $section;
 
     print "Writing $outputfile... ";
     open( OUT, ">$outputfile" ) or die("Can't write to $outputfile");
