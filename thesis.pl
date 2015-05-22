@@ -35,7 +35,7 @@ $feedlinks = 1;    # 0 for no; 1 for yes.
 
 # Set the path to the image that will be used for the feed link on the Web page.
 # Path should be relative to where the Web page lives:
-$rssimage = "rss.png";
+$rssimage = "/newmaterials/new/rss.png";
 
 # Set the path to the feeds directory on the LOCAL machine (where the script output will go); folders must already exist:
 $localfeedsdir = catfile(".", "thesisfeeds");
