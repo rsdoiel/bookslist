@@ -370,7 +370,7 @@ EOM
             push @author_nav, $alpha;
             $section .= <<EOM;
           <h2 class="newacq-subjheading"><a name="$alpha">$alpha</a>
-          <a href="$feedserver/$alpha.xml"><img src="rss.png" alt="Subscribe to the RSS feed for recent author additions with last name starting with $alpha" title="Subscribe to the RSS feed for recent additions in Astronomy" class="newacq-rssimage" /></a>
+          <a href="$feedserver/$alpha.xml"><img src="$rssimage" alt="Subscribe to the RSS feed for recent author additions with last name starting with $alpha" title="Subscribe to the RSS feed for recent additions in Astronomy" class="newacq-rssimage" /></a>
           </h2>
           <table class="newacq-itemtable">
 EOM
